@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.readPermissions = ["public_profile", "email", "user_friends", "ads_read", "user_birthday", "user_location", "user_likes", "user_posts", "user_religion_politics", "user_about_me", "user_education_history", "user_hometown", "user_photos"]
         loginButton.delegate = self
         
 //        if FBSDKAccessToken.currentAccessToken() != nil {
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func returnUserData()
     {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "picture, cover, photos, hometown, education, about, political, religion, feed, likes, location, birthday, locale, age_range, gender, email, first_name, last_name"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
             if ((error) != nil)
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             else
             {
                 print("fetched user: \(result)")
-                if let username = result.user {
+                if let username = result.valueForKey("name") {
                     print("Username: \(username)")
                 }
             }
