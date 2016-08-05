@@ -24,7 +24,6 @@
 #define FBSDK_APP_INVITE_CONTENT_PREVIEW_IMAGE_KEY @"previewImage"
 #define FBSDK_APP_INVITE_CONTENT_PROMO_CODE_KEY @"promoCode"
 #define FBSDK_APP_INVITE_CONTENT_PROMO_TEXT_KEY @"promoText"
-#define FBSDK_APP_INVITE_CONTENT_DESTINATION_KEY @"destination"
 
 
 @implementation FBSDKAppInviteContent
@@ -69,8 +68,7 @@
           [FBSDKInternalUtility object:_appLinkURL isEqualToObject:content.appLinkURL] &&
           [FBSDKInternalUtility object:_appInvitePreviewImageURL isEqualToObject:content.appInvitePreviewImageURL] &&
           [FBSDKInternalUtility object:_promotionText isEqualToObject:content.promotionText] &&
-          [FBSDKInternalUtility object:_promotionCode isEqualToObject:content.promotionText] &&
-          _destination == content.destination
+          [FBSDKInternalUtility object:_promotionCode isEqualToObject:content.promotionText]
           );
 }
 
@@ -90,8 +88,6 @@
         FBSDK_APP_INVITE_CONTENT_PROMO_CODE_KEY];
     _promotionText = [decoder decodeObjectOfClass:[NSString class] forKey:
         FBSDK_APP_INVITE_CONTENT_PROMO_TEXT_KEY];
-    _destination = [decoder decodeIntegerForKey:
-                      FBSDK_APP_INVITE_CONTENT_DESTINATION_KEY];
 
   }
   return self;
@@ -103,7 +99,7 @@
   [encoder encodeObject:_appInvitePreviewImageURL forKey:FBSDK_APP_INVITE_CONTENT_PREVIEW_IMAGE_KEY];
   [encoder encodeObject:_promotionCode forKey:FBSDK_APP_INVITE_CONTENT_PROMO_CODE_KEY];
   [encoder encodeObject:_promotionText forKey:FBSDK_APP_INVITE_CONTENT_PROMO_TEXT_KEY];
-  [encoder encodeInt:_destination forKey:FBSDK_APP_INVITE_CONTENT_DESTINATION_KEY];
+
 }
 
 #pragma mark - NSCopying
@@ -115,7 +111,6 @@
   copy->_appInvitePreviewImageURL = [_appInvitePreviewImageURL copy];
   copy->_promotionText = [_promotionText copy];
   copy->_promotionCode = [_promotionCode copy];
-  copy->_destination = _destination;
   return copy;
 }
 
