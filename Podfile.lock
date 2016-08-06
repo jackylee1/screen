@@ -1,4 +1,11 @@
 PODS:
+  - AWSCognito (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSCore (2.3.6)
+  - AWSDynamoDB (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSS3 (2.3.6):
+    - AWSCore (= 2.3.6)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -13,12 +20,20 @@ PODS:
     - FBSDKCoreKit
 
 DEPENDENCIES:
+  - AWSCognito (~> 2.3.6)
+  - AWSCore (~> 2.3.6)
+  - AWSDynamoDB (~> 2.3.6)
+  - AWSS3 (~> 2.3.6)
   - Bolts
   - FBSDKCoreKit (~> 4.12.0)
   - FBSDKLoginKit (~> 4.12.0)
   - FBSDKShareKit (~> 4.12.0)
 
 SPEC CHECKSUMS:
+  AWSCognito: af54fe65171c7c994c134e5d29b1ee60ee234825
+  AWSCore: 917d84b32974136194a905b98c0ae25c9f3350b8
+  AWSDynamoDB: 0bfd95eb10363090d8570a48d5feb4e3d7ec5264
+  AWSS3: 1caaf6b45100503fecf3d418c394519a89409a74
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6

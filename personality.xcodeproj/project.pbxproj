@@ -24,6 +24,8 @@
 		1CAE88BB1D558C5A008D3710 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE88B71D558C5A008D3710 /* User.swift */; };
 		1CBB530D1D544DC10090299A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBB530C1D544DC10090299A /* Default-568h@2x.png */; };
 		1CBB530F1D5451800090299A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBB530E1D5451800090299A /* LoginViewController.swift */; };
+		1CF784DC1D568EC900131928 /* CognitoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF784DB1D568EC900131928 /* CognitoHandler.swift */; };
+		1CF784DE1D56910A00131928 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF784DD1D56910A00131928 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		1CAE88B71D558C5A008D3710 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1CBB530C1D544DC10090299A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1CBB530E1D5451800090299A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1CF784DB1D568EC900131928 /* CognitoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitoHandler.swift; sourceTree = "<group>"; };
+		1CF784DD1D56910A00131928 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AB2B1CE74856F8F0AA93849 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7F9D1FBD8C173CB7B723572F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF82679B5C4675688C48F315 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,9 +104,9 @@
 		1C9B956A1D5406170092349C = {
 			isa = PBXGroup;
 			children = (
+				1C9B95751D5406170092349C /* personality */,
 				1CAE88AB1D5584F3008D3710 /* Models */,
 				1CBB530C1D544DC10090299A /* Default-568h@2x.png */,
-				1C9B95751D5406170092349C /* personality */,
 				1C9B958D1D5406170092349C /* personalityTests */,
 				1C9B95981D5406170092349C /* personalityUITests */,
 				1C9B95741D5406170092349C /* Products */,
@@ -129,6 +133,8 @@
 				1CAE88A01D558238008D3710 /* UserDataHandler.swift */,
 				1CBB530E1D5451800090299A /* LoginViewController.swift */,
 				1C9B95781D5406170092349C /* ViewController.swift */,
+				1CF784DB1D568EC900131928 /* CognitoHandler.swift */,
+				1CF784DD1D56910A00131928 /* Constants.swift */,
 				1C9B957A1D5406170092349C /* Main.storyboard */,
 				1C9B95801D5406170092349C /* Assets.xcassets */,
 				1C9B95821D5406170092349C /* LaunchScreen.storyboard */,
@@ -378,6 +384,8 @@
 				1C9B95771D5406170092349C /* AppDelegate.swift in Sources */,
 				1CAE88BB1D558C5A008D3710 /* User.swift in Sources */,
 				1CAE88BA1D558C5A008D3710 /* User+CoreDataProperties.swift in Sources */,
+				1CF784DC1D568EC900131928 /* CognitoHandler.swift in Sources */,
+				1CF784DE1D56910A00131928 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCognito.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSDynamoDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,6 +57,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2424F3B8426EC2E6A0EEA813BFA12ACD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2D93A8C948B13767EFDA624AD8424088</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5D69761C2CD2A1E5C013537B29CAB4CF</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7FDC23E973CC8CEE46E2B1A952F13793</key>
+		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
+		<key>A79E4DFDB520AC579CEA22EC6DE9ECD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ECCCA5551DC2D84DC441D11E5F07ADDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
