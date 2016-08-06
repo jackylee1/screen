@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -17,12 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UM4-V9-bE6" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="197" y="282" width="206" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UM4-V9-bE6" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="374" y="544" width="206" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="8CS-Xk-FPe"/>
+                                    <constraint firstAttribute="height" constant="36" id="VeS-nQ-Byg"/>
+                                </constraints>
                                 <state key="normal" title="login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AR-op-iiO">
+                                <rect key="frame" x="259" y="285" width="83" height="30"/>
+                                <state key="normal" title="User Test"/>
+                                <connections>
+                                    <action selector="userTestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gk4-Q6-Rdk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UM4-V9-bE6" secondAttribute="bottom" constant="20" id="6iZ-bs-uKf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UM4-V9-bE6" secondAttribute="trailing" id="vmm-NK-qmM"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="UM4-V9-bE6" id="rbX-qM-sre"/>
@@ -30,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="389"/>
+            <point key="canvasLocation" x="-131" y="211"/>
         </scene>
     </scenes>
 </document>
