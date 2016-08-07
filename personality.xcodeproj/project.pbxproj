@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		059FF17B79F203FAFEC248FB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9D1FBD8C173CB7B723572F /* Pods.framework */; };
+		1C9918C61D56F2AC008DC32F /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9918C51D56F2AC008DC32F /* UserMapper.swift */; };
 		1C9B95771D5406170092349C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95761D5406170092349C /* AppDelegate.swift */; };
 		1C9B95791D5406170092349C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95781D5406170092349C /* ViewController.swift */; };
 		1C9B957C1D5406170092349C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B957A1D5406170092349C /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C9918C51D56F2AC008DC32F /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		1C9B95731D5406170092349C /* personality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = personality.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B95761D5406170092349C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C9B95781D5406170092349C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				1C9B95781D5406170092349C /* ViewController.swift */,
 				1CF784DB1D568EC900131928 /* CognitoHandler.swift */,
 				1CF784DD1D56910A00131928 /* Constants.swift */,
+				1C9918C51D56F2AC008DC32F /* UserMapper.swift */,
 				1C9B957A1D5406170092349C /* Main.storyboard */,
 				1C9B95801D5406170092349C /* Assets.xcassets */,
 				1C9B95821D5406170092349C /* LaunchScreen.storyboard */,
@@ -380,6 +383,7 @@
 				1CAE88B91D558C5A008D3710 /* Post.swift in Sources */,
 				1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */,
 				1CAE88B81D558C5A008D3710 /* Post+CoreDataProperties.swift in Sources */,
+				1C9918C61D56F2AC008DC32F /* UserMapper.swift in Sources */,
 				1CAE889F1D556CEA008D3710 /* FacebookHandler.swift in Sources */,
 				1C9B95771D5406170092349C /* AppDelegate.swift in Sources */,
 				1CAE88BB1D558C5A008D3710 /* User.swift in Sources */,

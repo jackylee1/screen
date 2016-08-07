@@ -8,9 +8,16 @@
 
 import Foundation
 import CoreData
+import AWSDynamoDB
+import AWSCognito
+import FBSDKLoginKit
+
+
 
 class UserDataHandler: NSObject {
     var managedObjectContext: NSManagedObjectContext?
+    var credentialsProvider: AWSCognitoCredentialsProvider?
+
     
     func saveUserData(userData: AnyObject) {
         print("Save User: \(userData)")
@@ -64,6 +71,59 @@ class UserDataHandler: NSObject {
         
 
         print("User: \(user)")
+        saveUserToDynamoDB(id!)
+    }
+    
+    func saveUserToDynamoDB(id: AnyObject) {
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
+        fetchRequest.predicate = userPredicate
+        
+        var userArray: [User]?
+        
+        do {
+            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
+        } catch let getUserError as NSError {
+            print("Error fetching User: \(getUserError)")
+        }
+        
+        let user = userArray![0]
+    
+        let userMapper = UserMapper()
+        
+        userMapper.firstname = user.firstname!
+        userMapper.lastname = user.lastname!
+        userMapper.gender = user.gender!
+        userMapper.hometown = user.hometown!
+        userMapper.email = user.email!
+        userMapper.ID = user.id!
+        print("UserID: \(user.id!)")
+        userMapper.location = user.location!
+        userMapper.political = user.political!
+        userMapper.religion = user.religion!
+        
+        if(credentialsProvider == nil){
+            credentialsProvider = AWSCognitoCredentialsProvider.init(regionType: Constants.regionType, identityId: nil, accountId: nil, identityPoolId: Constants.idPool, unauthRoleArn: nil, authRoleArn: nil, logins: nil)
+            print("***Credentials was nil***")
+        }
+        let idToken = FBSDKAccessToken.currentAccessToken().tokenString
+        credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]
+
+        let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
+        
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+
+        
+        let mapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
+        mapper.save(userMapper).continueWithBlock { (task: AWSTask!) -> AnyObject! in
+            if(task.error != nil) {
+                print("Dynamo Error: \(task.error)")
+                return nil
+            }
+            return nil
+        }
+
+
     }
     
 }
