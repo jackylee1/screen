@@ -17,7 +17,7 @@ import FBSDKLoginKit
 class UserDataHandler: NSObject {
     var managedObjectContext: NSManagedObjectContext?
     var credentialsProvider: AWSCognitoCredentialsProvider?
-
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     func saveUserData(userData: AnyObject) {
         print("Save User: \(userData)")
@@ -96,7 +96,8 @@ class UserDataHandler: NSObject {
         userMapper.gender = user.gender!
         userMapper.hometown = user.hometown!
         userMapper.email = user.email!
-        userMapper.ID = user.id!
+//        userMapper.ID = user.id!
+        userMapper.ID = (defaults.valueForKey("AWSUserID") as! String)
         print("UserID: \(user.id!)")
         userMapper.location = user.location!
         userMapper.political = user.political!

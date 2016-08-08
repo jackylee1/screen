@@ -50,8 +50,8 @@ class LoginViewController: UIViewController {
             print(item.message)
         }
         
-        let cognito = CognitoHandler()
-        cognito.loginToCognito()
+//        let cognito = CognitoHandler()
+//        cognito.loginToCognito()
         
     }
 

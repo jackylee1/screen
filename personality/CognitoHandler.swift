@@ -14,6 +14,7 @@ import FBSDKLoginKit
 class CognitoHandler
 {
     var credentialsProvider: AWSCognitoCredentialsProvider?
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     func loginToCognito() {
         let idToken = FBSDKAccessToken.currentAccessToken().tokenString
@@ -40,6 +41,10 @@ class CognitoHandler
             }
             return nil
         }
+        
+        let userID = credentialsProvider?.identityId
+        defaults.setValue("\(userID!)", forKey: "AWSUserID")
+        print("User id is: \(userID)")
         
     }
 }
