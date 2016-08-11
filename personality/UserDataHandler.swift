@@ -55,15 +55,23 @@ class UserDataHandler: NSObject {
         user?.setValue(userData.valueForKey("hometown")?.valueForKey("name"), forKey: "hometown")
         user?.setValue(userData.valueForKey("location")?.valueForKey("name"), forKey: "location")
         
-        let posts = userData.valueForKey("feed")?.valueForKey("data") as! [AnyObject]
+        let posts = userData.valueForKey("feed")?.valueForKey("data") as!
+            [AnyObject]
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
         
         for item in posts {
             if let message = item.valueForKey("message") {
-                let date = item.valueForKey("created_time")
+                let date = item.valueForKey("created_time") as! String
+                let dateValue = dateFormatter.dateFromString(date)
+                let epoch = dateValue?.timeIntervalSince1970
+//                print("Epoch: \(epoch!)")
                 let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
                 let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
                 post.setValue(message, forKey: "message")
-                post.setValue(date, forKey: "dateCreated")
+                post.setValue(epoch!, forKey: "dateCreated")
                 post.setValue(user, forKey: "user")
 //                print("Post: \(post)")
                 
@@ -125,7 +133,7 @@ class UserDataHandler: NSObject {
                 print("Dynamo Error: \(task.error)")
                 return nil
             } else {
-                print("Save User to AWS: \(task)")
+//                print("Save User to AWS: \(task)")
             }
             return nil
         }
@@ -150,7 +158,7 @@ class UserDataHandler: NSObject {
         
         for item in user.posts! {
             let post = item as! Post
-            
+            print(post)
             facebookPost.UserID = (defaults.valueForKey("AWSUserID") as! String)
             facebookPost.message = post.message
             facebookPost.DateCreated = post.dateCreated
@@ -169,7 +177,7 @@ class UserDataHandler: NSObject {
                     print("Dynamo Error: \(task.error)")
                     return nil
                 } else {
-                    print("Save User to AWS: \(task)")
+//                    print("Save Post to AWS: \(task)")
                 }
                 return nil
             }

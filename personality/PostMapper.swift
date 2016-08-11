@@ -12,7 +12,7 @@ import AWSDynamoDB
 class PostMapper : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var message: String?
     var UserID: String?
-    var DateCreated: String?
+    var DateCreated: NSNumber?
     
     class func dynamoDBTableName() -> String {
         return "Post"

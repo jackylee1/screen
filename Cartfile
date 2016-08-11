@@ -1,0 +1,2 @@
+# install the IBM Watson Developer Cloud SDK for iOS
+github "watson-developer-cloud/ios-sdk"
