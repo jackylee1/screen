@@ -47,7 +47,8 @@ class LoginViewController: UIViewController {
         
         
         for item in user.posts! {
-            print(item.message)
+           let post = item as! Post
+            print("Message: \(post.message!) Date: \(post.dateCreated!)")
         }
         
 //        let cognito = CognitoHandler()

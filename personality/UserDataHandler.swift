@@ -20,7 +20,7 @@ class UserDataHandler: NSObject {
     var defaults = NSUserDefaults.standardUserDefaults()
     
     func saveUserData(userData: AnyObject) {
-        print("Save User: \(userData)")
+//        print("Save User: \(userData)")
         let id = userData.valueForKey("id")
         let fetchRequest = NSFetchRequest(entityName: "User")
         let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id!])
@@ -41,7 +41,7 @@ class UserDataHandler: NSObject {
         } else {
             let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedObjectContext!)
             user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-            print("Create User")
+//            print("Create User")
             
         }
         
@@ -59,22 +59,26 @@ class UserDataHandler: NSObject {
         
         for item in posts {
             if let message = item.valueForKey("message") {
-                
+                let date = item.valueForKey("created_time")
                 let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
                 let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
                 post.setValue(message, forKey: "message")
+                post.setValue(date, forKey: "dateCreated")
                 post.setValue(user, forKey: "user")
-                print("Post: \(post)")
+//                print("Post: \(post)")
                 
             }
         }
         
 
-        print("User: \(user)")
+//        print("User: \(user)")
         saveUserToDynamoDB(id!)
+        savePostToDynamoDB(id!)
+        
     }
     
-    func saveUserToDynamoDB(id: AnyObject) {
+    
+    private func saveUserToDynamoDB(id: AnyObject) {
         let fetchRequest = NSFetchRequest(entityName: "User")
         let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
         fetchRequest.predicate = userPredicate
@@ -97,8 +101,8 @@ class UserDataHandler: NSObject {
         userMapper.hometown = user.hometown!
         userMapper.email = user.email!
 //        userMapper.ID = user.id!
-        userMapper.ID = (defaults.valueForKey("AWSUserID") as! String)
-        print("UserID: \(user.id!)")
+        userMapper.UserID = (defaults.valueForKey("AWSUserID") as! String)
+//        print("UserID: \(user.id!)")
         userMapper.location = user.location!
         userMapper.political = user.political!
         userMapper.religion = user.religion!
@@ -120,10 +124,58 @@ class UserDataHandler: NSObject {
             if(task.error != nil) {
                 print("Dynamo Error: \(task.error)")
                 return nil
+            } else {
+                print("Save User to AWS: \(task)")
             }
             return nil
         }
 
+    }
+    
+    private func savePostToDynamoDB(id: AnyObject) {
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
+        fetchRequest.predicate = userPredicate
+        
+        var userArray: [User]?
+        
+        do {
+            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
+        } catch let getUserError as NSError {
+            print("Error fetching User: \(getUserError)")
+        }
+        
+        let user = userArray![0]
+        let facebookPost = PostMapper()
+        
+        for item in user.posts! {
+            let post = item as! Post
+            
+            facebookPost.UserID = (defaults.valueForKey("AWSUserID") as! String)
+            facebookPost.message = post.message
+            facebookPost.DateCreated = post.dateCreated
+            
+            let idToken = FBSDKAccessToken.currentAccessToken().tokenString
+            credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]
+            
+            let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
+            
+            AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+            
+            
+            let mapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
+            mapper.save(facebookPost).continueWithBlock { (task: AWSTask!) -> AnyObject! in
+                if(task.error != nil) {
+                    print("Dynamo Error: \(task.error)")
+                    return nil
+                } else {
+                    print("Save User to AWS: \(task)")
+                }
+                return nil
+            }
+
+            
+        }
 
     }
     

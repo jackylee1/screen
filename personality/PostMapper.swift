@@ -1,34 +1,31 @@
 //
-//  UserMapper.swift
+//  PostMapper.swift
 //  personality
 //
-//  Created by Martin Conklin on 2016-08-06.
+//  Created by Martin Conklin on 2016-08-10.
 //  Copyright © 2016 Martin Conklin. All rights reserved.
 //
 
 import Foundation
 import AWSDynamoDB
 
-class UserMapper : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
-    
-    var firstname: String?
-    var lastname: String?
-    var gender: String?
-    var hometown: String?
-    var email: String?
+class PostMapper : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+    var message: String?
     var UserID: String?
-    var location: String?
-    var political: String?
-    var religion: String?
+    var DateCreated: String?
     
     class func dynamoDBTableName() -> String {
-        return "User"
+        return "Post"
     }
     
     class func hashKeyAttribute() -> String {
         return "UserID"
     }
     
+    class func rangeKeyAttribute() -> String {
+        return "DateCreated"
+    }
+
     override func isEqual(object: AnyObject!) -> Bool {
         return super.isEqual(object)
     }
@@ -36,5 +33,4 @@ class UserMapper : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     override func `self`() -> Self {
         return self
     }
-
 }

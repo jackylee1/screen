@@ -57,7 +57,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
             else
             {
 //                print("fetched user: \(result)")
-                print("Return User Data")
+                print("Return User Data: \(result)")
                 let cognito = CognitoHandler()
                 cognito.loginToCognito()
 

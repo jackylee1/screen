@@ -10,7 +10,6 @@
 		059FF17B79F203FAFEC248FB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9D1FBD8C173CB7B723572F /* Pods.framework */; };
 		1C9918C61D56F2AC008DC32F /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9918C51D56F2AC008DC32F /* UserMapper.swift */; };
 		1C9B95771D5406170092349C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95761D5406170092349C /* AppDelegate.swift */; };
-		1C9B95791D5406170092349C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95781D5406170092349C /* ViewController.swift */; };
 		1C9B957C1D5406170092349C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B957A1D5406170092349C /* Main.storyboard */; };
 		1C9B957F1D5406170092349C /* personality.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B957D1D5406170092349C /* personality.xcdatamodeld */; };
 		1C9B95811D5406170092349C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B95801D5406170092349C /* Assets.xcassets */; };
@@ -25,6 +24,7 @@
 		1CAE88BB1D558C5A008D3710 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE88B71D558C5A008D3710 /* User.swift */; };
 		1CBB530D1D544DC10090299A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBB530C1D544DC10090299A /* Default-568h@2x.png */; };
 		1CBB530F1D5451800090299A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBB530E1D5451800090299A /* LoginViewController.swift */; };
+		1CBB90911D5C35DE0096EC25 /* PostMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBB90901D5C35DE0096EC25 /* PostMapper.swift */; };
 		1CF784DC1D568EC900131928 /* CognitoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF784DB1D568EC900131928 /* CognitoHandler.swift */; };
 		1CF784DE1D56910A00131928 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF784DD1D56910A00131928 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,6 @@
 		1C9918C51D56F2AC008DC32F /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		1C9B95731D5406170092349C /* personality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = personality.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B95761D5406170092349C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C9B95781D5406170092349C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C9B957B1D5406170092349C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C9B957E1D5406170092349C /* personality.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = personality.xcdatamodel; sourceTree = "<group>"; };
 		1C9B95801D5406170092349C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		1CAE88B71D558C5A008D3710 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1CBB530C1D544DC10090299A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1CBB530E1D5451800090299A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1CBB90901D5C35DE0096EC25 /* PostMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMapper.swift; sourceTree = "<group>"; };
 		1CF784DB1D568EC900131928 /* CognitoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitoHandler.swift; sourceTree = "<group>"; };
 		1CF784DD1D56910A00131928 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AB2B1CE74856F8F0AA93849 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,10 +134,10 @@
 				1CAE889E1D556CEA008D3710 /* FacebookHandler.swift */,
 				1CAE88A01D558238008D3710 /* UserDataHandler.swift */,
 				1CBB530E1D5451800090299A /* LoginViewController.swift */,
-				1C9B95781D5406170092349C /* ViewController.swift */,
 				1CF784DB1D568EC900131928 /* CognitoHandler.swift */,
 				1CF784DD1D56910A00131928 /* Constants.swift */,
 				1C9918C51D56F2AC008DC32F /* UserMapper.swift */,
+				1CBB90901D5C35DE0096EC25 /* PostMapper.swift */,
 				1C9B957A1D5406170092349C /* Main.storyboard */,
 				1C9B95801D5406170092349C /* Assets.xcassets */,
 				1C9B95821D5406170092349C /* LaunchScreen.storyboard */,
@@ -378,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CBB530F1D5451800090299A /* LoginViewController.swift in Sources */,
-				1C9B95791D5406170092349C /* ViewController.swift in Sources */,
 				1C9B957F1D5406170092349C /* personality.xcdatamodeld in Sources */,
 				1CAE88B91D558C5A008D3710 /* Post.swift in Sources */,
 				1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */,
@@ -386,6 +385,7 @@
 				1C9918C61D56F2AC008DC32F /* UserMapper.swift in Sources */,
 				1CAE889F1D556CEA008D3710 /* FacebookHandler.swift in Sources */,
 				1C9B95771D5406170092349C /* AppDelegate.swift in Sources */,
+				1CBB90911D5C35DE0096EC25 /* PostMapper.swift in Sources */,
 				1CAE88BB1D558C5A008D3710 /* User.swift in Sources */,
 				1CAE88BA1D558C5A008D3710 /* User+CoreDataProperties.swift in Sources */,
 				1CF784DC1D568EC900131928 /* CognitoHandler.swift in Sources */,

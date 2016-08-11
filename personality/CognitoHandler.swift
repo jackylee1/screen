@@ -37,14 +37,15 @@ class CognitoHandler
             } else {
                 print("Successful Login to Cognito")
                 print("Cognito Success: \(task.result)")
+                self.defaults.setValue("\(task.result!)", forKey: "AWSUserID")
                 
             }
             return nil
         }
         
-        let userID = credentialsProvider?.identityId
-        defaults.setValue("\(userID!)", forKey: "AWSUserID")
-        print("User id is: \(userID)")
+//        let userID = credentialsProvider?.identityId
+//        defaults.setValue("\(userID!)", forKey: "AWSUserID")
+//        print("User id is: \(userID)")
         
     }
 }

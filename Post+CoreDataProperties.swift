@@ -15,6 +15,7 @@ import CoreData
 extension Post {
 
     @NSManaged var message: String?
+    @NSManaged var dateCreated: String?
     @NSManaged var user: User?
 
 }
