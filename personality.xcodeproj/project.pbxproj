@@ -18,6 +18,15 @@
 		1C9B959A1D5406170092349C /* personalityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95991D5406170092349C /* personalityUITests.swift */; };
 		1CA5C7F61D5D3331002E9176 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C7F41D5D3331002E9176 /* Post+CoreDataProperties.swift */; };
 		1CA5C7F71D5D3331002E9176 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C7F51D5D3331002E9176 /* Post.swift */; };
+		1CA5C80E1D5D598D002E9176 /* ToneAnalyzerV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */; };
+		1CA5C80F1D5D598D002E9176 /* ToneAnalyzerV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1CA5C8131D5D59F3002E9176 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8111D5D59E3002E9176 /* Alamofire.framework */; };
+		1CA5C8141D5D59F3002E9176 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8111D5D59E3002E9176 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1CA5C8171D5D5A41002E9176 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8151D5D5A33002E9176 /* Freddy.framework */; };
+		1CA5C8181D5D5A41002E9176 /* Freddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8151D5D5A33002E9176 /* Freddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1CA5C81B1D5D5A7C002E9176 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8191D5D5A6F002E9176 /* RestKit.framework */; };
+		1CA5C81C1D5D5A7C002E9176 /* RestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8191D5D5A6F002E9176 /* RestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1CA5C81E1D5D5ADB002E9176 /* ToneAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C81D1D5D5ADB002E9176 /* ToneAnalyzer.swift */; };
 		1CAE889F1D556CEA008D3710 /* FacebookHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE889E1D556CEA008D3710 /* FacebookHandler.swift */; };
 		1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE88A01D558238008D3710 /* UserDataHandler.swift */; };
 		1CAE88BA1D558C5A008D3710 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE88B61D558C5A008D3710 /* User+CoreDataProperties.swift */; };
@@ -46,6 +55,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1CA5C8101D5D598D002E9176 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1CA5C80F1D5D598D002E9176 /* ToneAnalyzerV3.framework in Embed Frameworks */,
+				1CA5C8181D5D5A41002E9176 /* Freddy.framework in Embed Frameworks */,
+				1CA5C8141D5D59F3002E9176 /* Alamofire.framework in Embed Frameworks */,
+				1CA5C81C1D5D5A7C002E9176 /* RestKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1C9918C51D56F2AC008DC32F /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		1C9B95731D5406170092349C /* personality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = personality.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +89,11 @@
 		1C9B959B1D5406170092349C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA5C7F41D5D3331002E9176 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1CA5C7F51D5D3331002E9176 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneAnalyzerV3.framework; sourceTree = "<group>"; };
+		1CA5C8111D5D59E3002E9176 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1CA5C8151D5D5A33002E9176 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
+		1CA5C8191D5D5A6F002E9176 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
+		1CA5C81D1D5D5ADB002E9176 /* ToneAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneAnalyzer.swift; sourceTree = "<group>"; };
 		1CAE889E1D556CEA008D3710 /* FacebookHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookHandler.swift; sourceTree = "<group>"; };
 		1CAE88A01D558238008D3710 /* UserDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataHandler.swift; sourceTree = "<group>"; };
 		1CAE88B61D558C5A008D3710 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -83,6 +114,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				059FF17B79F203FAFEC248FB /* Pods.framework in Frameworks */,
+				1CA5C81B1D5D5A7C002E9176 /* RestKit.framework in Frameworks */,
+				1CA5C8131D5D59F3002E9176 /* Alamofire.framework in Frameworks */,
+				1CA5C8171D5D5A41002E9176 /* Freddy.framework in Frameworks */,
+				1CA5C80E1D5D598D002E9176 /* ToneAnalyzerV3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +165,7 @@
 		1C9B95751D5406170092349C /* personality */ = {
 			isa = PBXGroup;
 			children = (
+				1CA5C81D1D5D5ADB002E9176 /* ToneAnalyzer.swift */,
 				1C9B95761D5406170092349C /* AppDelegate.swift */,
 				1CAE889E1D556CEA008D3710 /* FacebookHandler.swift */,
 				1CAE88A01D558238008D3710 /* UserDataHandler.swift */,
@@ -188,6 +224,10 @@
 		D05ED0702A092DC37A670B90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CA5C8191D5D5A6F002E9176 /* RestKit.framework */,
+				1CA5C8151D5D5A33002E9176 /* Freddy.framework */,
+				1CA5C8111D5D59E3002E9176 /* Alamofire.framework */,
+				1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */,
 				7F9D1FBD8C173CB7B723572F /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -206,6 +246,7 @@
 				1C9B95711D5406170092349C /* Resources */,
 				757CF67EE082017A5571E6DE /* Embed Pods Frameworks */,
 				0F0AA1D0E6514EF1E46DDA9C /* Copy Pods Resources */,
+				1CA5C8101D5D598D002E9176 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,6 +423,7 @@
 				1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */,
 				1C9918C61D56F2AC008DC32F /* UserMapper.swift in Sources */,
 				1CA5C7F71D5D3331002E9176 /* Post.swift in Sources */,
+				1CA5C81E1D5D5ADB002E9176 /* ToneAnalyzer.swift in Sources */,
 				1CAE889F1D556CEA008D3710 /* FacebookHandler.swift in Sources */,
 				1CA5C7F61D5D3331002E9176 /* Post+CoreDataProperties.swift in Sources */,
 				1C9B95771D5406170092349C /* AppDelegate.swift in Sources */,
@@ -540,6 +582,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = personality/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +605,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = personality/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
