@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -26,17 +27,32 @@
                                 </constraints>
                                 <state key="normal" title="login"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AR-op-iiO">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AR-op-iiO">
                                 <rect key="frame" x="259" y="285" width="83" height="30"/>
                                 <state key="normal" title="User Test"/>
                                 <connections>
                                     <action selector="userTestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gk4-Q6-Rdk"/>
+                                    <segue destination="105-O6-yG3" kind="presentation" id="exv-ey-wsi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVr-Ds-ilr">
+                                <rect key="frame" x="277" y="362" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="ncI-L7-cfB"/>
+                                </constraints>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <segue destination="Y7c-zB-ZNs" kind="presentation" id="ZXF-i9-UL4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UM4-V9-bE6" secondAttribute="bottom" constant="20" id="6iZ-bs-uKf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YVr-Ds-ilr" secondAttribute="bottom" constant="208" id="COc-PJ-pog"/>
+                            <constraint firstItem="YVr-Ds-ilr" firstAttribute="centerX" secondItem="4AR-op-iiO" secondAttribute="centerX" id="UwG-6z-Rph"/>
+                            <constraint firstItem="YVr-Ds-ilr" firstAttribute="top" secondItem="4AR-op-iiO" secondAttribute="bottom" constant="47" id="kQe-vV-sBe"/>
+                            <constraint firstItem="YVr-Ds-ilr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rzG-1j-WQ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UM4-V9-bE6" secondAttribute="trailing" id="vmm-NK-qmM"/>
                         </constraints>
                     </view>
@@ -47,6 +63,169 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-131" y="211"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="2Uw-xn-YFV">
+            <objects>
+                <viewController id="Y7c-zB-ZNs" customClass="PostViewController" customModule="personality" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lfe-Ni-4Cb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zZW-il-qcL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xhG-DC-ZTh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLb-gT-4UI">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="vus-tF-05r" kind="unwind" unwindAction="unwindFromPost:" id="l5F-MQ-ND1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdo-UF-4Xs">
+                                <rect key="frame" x="240" y="285" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="WoT-ws-pzz"/>
+                                </constraints>
+                                <state key="normal" title="Post to facebook"/>
+                                <connections>
+                                    <action selector="didTapPostButton:" destination="Y7c-zB-ZNs" eventType="touchUpInside" id="N6u-pI-LGV"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgN-br-ic0">
+                                <rect key="frame" x="129" y="93" width="342" height="78"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zZW-il-qcL" firstAttribute="top" secondItem="rdo-UF-4Xs" secondAttribute="bottom" constant="410" id="VYB-bh-dYX"/>
+                            <constraint firstItem="rdo-UF-4Xs" firstAttribute="centerX" secondItem="xhG-DC-ZTh" secondAttribute="centerX" id="ltC-Gm-pfl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textToPost" destination="dgN-br-ic0" id="aT3-f7-wRw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flQ-YA-nr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vus-tF-05r" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="1072"/>
+        </scene>
+        <!--Tones View Controller-->
+        <scene sceneID="WkT-8V-XEC">
+            <objects>
+                <viewController id="105-O6-yG3" customClass="TonesViewController" customModule="personality" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zng-QW-fI8"/>
+                        <viewControllerLayoutGuide type="bottom" id="yZz-dV-2LG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y6d-5r-CAT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mh-TL-Rbg">
+                                <rect key="frame" x="274" y="289" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-Kf-N4L" customClass="ToneView" customModule="personality" customModuleProvider="target">
+                                <rect key="frame" x="145" y="74" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="toneColour">
+                                        <color key="value" red="0.94509803920000002" green="0.41960784309999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93q-wD-62u" customClass="ToneView" customModule="personality" customModuleProvider="target">
+                                <rect key="frame" x="25" y="74" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="c27-So-twE"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="f1e-O9-idl"/>
+                                    <constraint firstAttribute="height" constant="70" id="m8a-JI-2LD"/>
+                                    <constraint firstAttribute="width" constant="70" id="yU1-S0-agE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="toneColour">
+                                        <color key="value" red="0.91155952910000004" green="0.0091625587530000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLr-ze-dU4" customClass="ToneView" customModule="personality" customModuleProvider="target">
+                                <rect key="frame" x="265" y="74" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="toneColour">
+                                        <color key="value" red="1" green="0.91585601500000002" blue="0.020902662209999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-D5-yWZ" customClass="ToneView" customModule="personality" customModuleProvider="target">
+                                <rect key="frame" x="385" y="74" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="toneColour">
+                                        <color key="value" red="0.16078431369999999" green="0.37647058820000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scr-iG-9Bz" customClass="ToneView" customModule="personality" customModuleProvider="target">
+                                <rect key="frame" x="505" y="74" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="toneColour">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NT-jy-lyd">
+                                <rect key="frame" x="277" y="251" width="46" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="QIs-j2-tCI" kind="unwind" unwindAction="unwindFromTones:" id="Dnz-Uu-hMt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="93q-wD-62u" firstAttribute="centerX" secondItem="y6d-5r-CAT" secondAttribute="centerX" multiplier="1/5" id="2jr-8W-hzd"/>
+                            <constraint firstItem="scr-iG-9Bz" firstAttribute="height" secondItem="93q-wD-62u" secondAttribute="height" id="6Vj-jl-yeI"/>
+                            <constraint firstItem="BLr-ze-dU4" firstAttribute="width" secondItem="93q-wD-62u" secondAttribute="width" id="9k1-KA-xSM"/>
+                            <constraint firstItem="BLr-ze-dU4" firstAttribute="height" secondItem="93q-wD-62u" secondAttribute="height" id="Fhx-rr-5tH"/>
+                            <constraint firstItem="qeZ-Kf-N4L" firstAttribute="centerX" secondItem="y6d-5r-CAT" secondAttribute="centerX" multiplier="3/5" id="MY6-D6-X94"/>
+                            <constraint firstItem="YXh-D5-yWZ" firstAttribute="height" secondItem="93q-wD-62u" secondAttribute="height" id="NZk-p6-Ubg"/>
+                            <constraint firstItem="YXh-D5-yWZ" firstAttribute="width" secondItem="93q-wD-62u" secondAttribute="width" id="QCU-YS-laR"/>
+                            <constraint firstItem="93q-wD-62u" firstAttribute="top" secondItem="zng-QW-fI8" secondAttribute="bottom" constant="54" id="VW6-xu-fcZ"/>
+                            <constraint firstItem="scr-iG-9Bz" firstAttribute="top" secondItem="zng-QW-fI8" secondAttribute="bottom" constant="54" id="WHa-Ne-t5a"/>
+                            <constraint firstItem="scr-iG-9Bz" firstAttribute="width" secondItem="93q-wD-62u" secondAttribute="width" id="azL-sN-EX7"/>
+                            <constraint firstItem="YXh-D5-yWZ" firstAttribute="top" secondItem="zng-QW-fI8" secondAttribute="bottom" constant="54" id="fdk-NW-T3R"/>
+                            <constraint firstItem="qeZ-Kf-N4L" firstAttribute="top" secondItem="zng-QW-fI8" secondAttribute="bottom" constant="54" id="mbA-sy-Guf"/>
+                            <constraint firstItem="scr-iG-9Bz" firstAttribute="centerX" secondItem="y6d-5r-CAT" secondAttribute="centerX" multiplier="9/5" id="mu0-Qx-pGv"/>
+                            <constraint firstItem="qeZ-Kf-N4L" firstAttribute="width" secondItem="93q-wD-62u" secondAttribute="width" id="ntm-nY-KBN"/>
+                            <constraint firstItem="qeZ-Kf-N4L" firstAttribute="height" secondItem="93q-wD-62u" secondAttribute="height" id="qHf-hw-uRH"/>
+                            <constraint firstItem="BLr-ze-dU4" firstAttribute="top" secondItem="zng-QW-fI8" secondAttribute="bottom" constant="54" id="wCz-H4-Hvf"/>
+                            <constraint firstItem="YXh-D5-yWZ" firstAttribute="centerX" secondItem="y6d-5r-CAT" secondAttribute="centerX" multiplier="7/5" id="wdt-Rb-07k"/>
+                            <constraint firstItem="BLr-ze-dU4" firstAttribute="centerX" secondItem="y6d-5r-CAT" secondAttribute="centerX" multiplier="5/5" id="zV5-e7-EaV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="anger" destination="93q-wD-62u" id="bjU-ng-9P9"/>
+                        <outlet property="disgust" destination="qeZ-Kf-N4L" id="PZv-gQ-59J"/>
+                        <outlet property="fear" destination="BLr-ze-dU4" id="Trc-E2-GXe"/>
+                        <outlet property="joy" destination="YXh-D5-yWZ" id="fO5-8C-eVo"/>
+                        <outlet property="sadness" destination="scr-iG-9Bz" id="DDQ-VX-JRM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAY-az-ROz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QIs-j2-tCI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="211"/>
         </scene>
     </scenes>
 </document>

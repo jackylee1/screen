@@ -156,9 +156,10 @@ class UserDataHandler: NSObject {
         let user = userArray![0]
         let facebookPost = PostMapper()
         
+        
         for item in user.posts! {
             let post = item as! Post
-            print(post)
+//            print(post)
             facebookPost.UserID = (defaults.valueForKey("AWSUserID") as! String)
             facebookPost.message = post.message
             facebookPost.DateCreated = post.dateCreated
@@ -181,6 +182,10 @@ class UserDataHandler: NSObject {
                 }
                 return nil
             }
+//            print(post.message)
+            let toneAnalyzer = WatsonToneAnalyzer()
+            toneAnalyzer.analyzeTone(post.message!)
+
 
             
         }

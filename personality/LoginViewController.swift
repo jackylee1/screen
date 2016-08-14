@@ -15,8 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     let facebook = FacebookHandler.sharedInstance
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
+    var defaults = NSUserDefaults.standardUserDefaults()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.defaults.setValue("0", forKey: "AWSUserID")
         
         let hasCurrentToken = FacebookHandler.sharedInstance.facebookToken()
         
@@ -24,6 +28,7 @@ class LoginViewController: UIViewController {
             facebook.returnUserData()
         } else {
             loginButton.readPermissions = ["public_profile", "email", "user_friends", "ads_read", "user_birthday", "user_location", "user_likes", "user_posts", "user_religion_politics", "user_about_me", "user_education_history", "user_hometown", "user_photos"]
+            loginButton.publishPermissions = ["publish_actions"]
             loginButton.delegate = facebook
         }
         
@@ -51,8 +56,19 @@ class LoginViewController: UIViewController {
             print("Message: \(post.message!) Date: \(post.dateCreated!)")
         }
         
+//        let toneAnalyzer = WatsonToneAnalyzer()
+//        toneAnalyzer.analyzeTone()
+        
 //        let cognito = CognitoHandler()
 //        cognito.loginToCognito()
+        
+    }
+    
+    @IBAction func unwindFromTones(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindFromPost(segue: UIStoryboardSegue) {
         
     }
 
@@ -62,7 +78,6 @@ class LoginViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         loginButton.delegate = nil
-        print("Did prepare for segue")
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
