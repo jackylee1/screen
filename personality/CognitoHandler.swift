@@ -43,9 +43,5 @@ class CognitoHandler
             return nil
         }
         
-//        let userID = credentialsProvider?.identityId
-//        defaults.setValue("\(userID!)", forKey: "AWSUserID")
-//        print("User id is: \(userID)")
-        
     }
 }

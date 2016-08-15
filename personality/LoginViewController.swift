@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
     var defaults = NSUserDefaults.standardUserDefaults()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,12 +57,22 @@ class LoginViewController: UIViewController {
             print("Message: \(post.message!) Date: \(post.dateCreated!)")
         }
         
-//        let toneAnalyzer = WatsonToneAnalyzer()
-//        toneAnalyzer.analyzeTone()
+        let entity = NSEntityDescription.entityForName("Tone", inManagedObjectContext: managedObjectContext)
+        let tones = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext) as! Tone
         
-//        let cognito = CognitoHandler()
-//        cognito.loginToCognito()
+        tones.anger = 0.126792
+        tones.disgust = 0.380786
+        tones.fear = 0.087298
+        tones.joy = 0.646714
+        tones.sadness = 0.160459
         
+        tones.openness = 0.812
+        tones.conscientiousness = 0.916
+        tones.extraversion = 0.463
+        tones.agreeableness = 0.238
+        tones.emotionalRange = 0.235
+        
+        performSegueWithIdentifier("toTones", sender: nil)
     }
     
     @IBAction func unwindFromTones(segue: UIStoryboardSegue) {
@@ -78,6 +89,10 @@ class LoginViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         loginButton.delegate = nil
+//        if segue.identifier == "toTones" {
+//            let tonesVC = segue.destinationViewController as! TonesViewController
+//            tonesVC.tones = tonesToPass
+//        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

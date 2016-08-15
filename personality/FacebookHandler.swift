@@ -44,8 +44,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
         print("User Logged Out")
     }
     
-    func returnUserData()
-    {
+    func returnUserData() {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "picture, cover, photos, hometown, education, about, political, religion, feed, likes, location, birthday, locale, age_range, gender, email, first_name, last_name"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
@@ -56,21 +55,32 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
             }
             else
             {
-//                print("fetched user: \(result)")
-//                print("Return User Data: \(result)")
                 let cognito = CognitoHandler()
                 cognito.loginToCognito()
-
                 let userDataHandler = UserDataHandler()
                 userDataHandler.managedObjectContext = self.managedObjectContext
-//                var userDataHandler: UserDataHandler?
-//                let user = result as! NSMutableDictionary
-                
                 userDataHandler.saveUserData(result)
                 
             }
         })
         
+    }
+    
+    func postToFeed(textToPost: String) {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/feed",
+                                                                 parameters: ["message": textToPost],
+                                                                 HTTPMethod: "Post")
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            } else {
+                let nc = NSNotificationCenter.defaultCenter()
+                nc.postNotificationName("PostedToFacebook", object: nil)
+            }
+        })
+
     }
 
     

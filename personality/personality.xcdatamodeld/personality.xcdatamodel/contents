@@ -5,6 +5,18 @@
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Tone" representedClassName=".Tone" syncable="YES">
+        <attribute name="agreeableness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="anger" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="conscientiousness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="disgust" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="emotionalRange" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="extraversion" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fear" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="joy" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="openness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sadness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,5 +32,6 @@
     <elements>
         <element name="Post" positionX="153" positionY="36" width="128" height="90"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Tone" positionX="45" positionY="63" width="128" height="195"/>
     </elements>
 </model>

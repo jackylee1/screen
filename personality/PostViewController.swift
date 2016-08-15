@@ -21,8 +21,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 
-        // Do any additional setup after loading the view.
-    }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostViewController.clearTextView), name: "PostedToFacebook", object: nil)    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,7 +61,6 @@ class PostViewController: UIViewController, UITextViewDelegate {
                 applyTypingStyle(textView)
                 textView.text = ""
             }
-            
             return true
 
         } else {
@@ -70,27 +68,18 @@ class PostViewController: UIViewController, UITextViewDelegate {
             moveCursorToStart(textView)
             return false
         }
-        
-        
-        
     }
     
     
     @IBAction func didTapPostButton(sender: UIButton) {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/feed",
-                                                                 parameters: ["message":"\(textToPost.text)"],
-                                                                 HTTPMethod: "Post")
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            } else {
-                print("feed post success")
-            }
-        })
+        if textToPost.text != initialPlaceholderText {
+            FacebookHandler.sharedInstance.postToFeed(textToPost.text)
+        }
     }
     
+    @objc private func clearTextView() {
+        applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
+    }
 
     
     // MARK: - Navigation

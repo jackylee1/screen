@@ -20,7 +20,6 @@ class UserDataHandler: NSObject {
     var defaults = NSUserDefaults.standardUserDefaults()
     
     func saveUserData(userData: AnyObject) {
-//        print("Save User: \(userData)")
         let id = userData.valueForKey("id")
         let fetchRequest = NSFetchRequest(entityName: "User")
         let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id!])
@@ -41,7 +40,6 @@ class UserDataHandler: NSObject {
         } else {
             let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedObjectContext!)
             user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-//            print("Create User")
             
         }
         
@@ -67,22 +65,15 @@ class UserDataHandler: NSObject {
                 let date = item.valueForKey("created_time") as! String
                 let dateValue = dateFormatter.dateFromString(date)
                 let epoch = dateValue?.timeIntervalSince1970
-//                print("Epoch: \(epoch!)")
                 let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
                 let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
                 post.setValue(message, forKey: "message")
                 post.setValue(epoch!, forKey: "dateCreated")
                 post.setValue(user, forKey: "user")
-//                print("Post: \(post)")
-                
             }
         }
-        
-
-//        print("User: \(user)")
         saveUserToDynamoDB(id!)
         savePostToDynamoDB(id!)
-        
     }
     
     
@@ -108,9 +99,7 @@ class UserDataHandler: NSObject {
         userMapper.gender = user.gender!
         userMapper.hometown = user.hometown!
         userMapper.email = user.email!
-//        userMapper.ID = user.id!
         userMapper.UserID = (defaults.valueForKey("AWSUserID") as! String)
-//        print("UserID: \(user.id!)")
         userMapper.location = user.location!
         userMapper.political = user.political!
         userMapper.religion = user.religion!
@@ -132,8 +121,6 @@ class UserDataHandler: NSObject {
             if(task.error != nil) {
                 print("Dynamo Error: \(task.error)")
                 return nil
-            } else {
-//                print("Save User to AWS: \(task)")
             }
             return nil
         }
@@ -159,7 +146,6 @@ class UserDataHandler: NSObject {
         
         for item in user.posts! {
             let post = item as! Post
-//            print(post)
             facebookPost.UserID = (defaults.valueForKey("AWSUserID") as! String)
             facebookPost.message = post.message
             facebookPost.DateCreated = post.dateCreated
@@ -177,12 +163,9 @@ class UserDataHandler: NSObject {
                 if(task.error != nil) {
                     print("Dynamo Error: \(task.error)")
                     return nil
-                } else {
-//                    print("Save Post to AWS: \(task)")
                 }
                 return nil
             }
-//            print(post.message)
             let toneAnalyzer = WatsonToneAnalyzer()
             toneAnalyzer.analyzeTone(post.message!)
 

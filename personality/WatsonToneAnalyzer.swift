@@ -27,14 +27,10 @@ class WatsonToneAnalyzer
         
     
         toneAnalyzer.getTone(text, failure: failure)  { tones in
-//            print(text)
-//            print()
             self.processAnalyzedTone(tones,text: text)
         }
     }
     private func processAnalyzedTone(tones: ToneAnalysis, text: String) {
-//        print("\(tones.documentTone[1].tones[1].name) : \(tones.documentTone[1].tones[1].score)")
-        
         print(text)
         print()
 
@@ -48,22 +44,6 @@ class WatsonToneAnalyzer
             print()
         }
         print("--------------------")
-        
-//        let sentenceTones = tones.sentencesTones
-//        for sentence in sentenceTones! {
-//            print("\(sentence.sentenceID) - \(sentence.text)")
-//            let toneCatagories = sentence.toneCategories
-//            for eachTone in toneCatagories {
-////                print("\(eachTone.name): \(eachTone.tones)")
-//                let toneType = eachTone.tones
-//                for individualTone in toneType {
-//                    print("\(individualTone.name): \(individualTone.score)")
-//                }
-//            }
-//            print()
-
-//        }
-        
     }
     
 }

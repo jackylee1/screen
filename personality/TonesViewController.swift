@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TonesViewController: UIViewController {
     
@@ -15,17 +16,45 @@ class TonesViewController: UIViewController {
     @IBOutlet weak var fear: ToneView!
     @IBOutlet weak var joy: ToneView!
     @IBOutlet weak var sadness: ToneView!
+    
+    @IBOutlet weak var openness: ToneView!
+    @IBOutlet weak var conscientiousness: ToneView!
+    @IBOutlet weak var extraversion: ToneView!
+    @IBOutlet weak var agreeableness: ToneView!
+    @IBOutlet weak var emotionalRange: ToneView!
+    
+    
+    let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        anger.toneAmount = 1/5
-        disgust.toneAmount = 2/5
-        fear.toneAmount = 3/5
-        joy.toneAmount = 4/5
-        sadness.toneAmount = 0.999999
+        let fetchRequest = NSFetchRequest(entityName: "Tone")
+        var toneArray: [Tone]?
         
-        // Do any additional setup after loading the view.
+        do {
+            toneArray = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Tone]
+        } catch let getToneError as NSError {
+            print("Error fetching Tone: \(getToneError)")
+        }
+        
+        let tones = toneArray![0]
+
+        
+        anger.toneAmount = tones.anger as! CGFloat
+        disgust.toneAmount = tones.disgust as! CGFloat
+        fear.toneAmount = tones.fear as! CGFloat
+        joy.toneAmount = tones.joy as! CGFloat
+        sadness.toneAmount = tones.sadness as! CGFloat
+        
+        openness.toneAmount = tones.openness as! CGFloat
+        conscientiousness.toneAmount = tones.conscientiousness as! CGFloat
+        extraversion.toneAmount = tones.extraversion as! CGFloat
+        agreeableness.toneAmount = tones.agreeableness as! CGFloat
+        emotionalRange.toneAmount = tones.emotionalRange as! CGFloat
+        
+
     }
 
     override func didReceiveMemoryWarning() {
