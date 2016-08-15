@@ -99,6 +99,10 @@ class PostViewController: UIViewController, UITextViewDelegate {
     @IBAction func unwindDoNotPost(segue: UIStoryboardSegue) {
         
     }
+    
+    @IBAction func clearButtonTapped(sender: UIButton) {
+        clearTextView()
+    }
 
     
     // MARK: - Navigation

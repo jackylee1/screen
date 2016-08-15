@@ -102,10 +102,19 @@
                                     <action selector="didTapPostButton:" destination="Y7c-zB-ZNs" eventType="touchUpInside" id="N6u-pI-LGV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeT-md-RWh">
+                                <rect key="frame" x="277" y="363" width="46" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="Y7c-zB-ZNs" eventType="touchUpInside" id="h8y-nd-98N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dgN-br-ic0" firstAttribute="leading" secondItem="xhG-DC-ZTh" secondAttribute="leadingMargin" constant="25" id="3Mf-qt-3m2"/>
+                            <constraint firstItem="zeT-md-RWh" firstAttribute="centerX" secondItem="rdo-UF-4Xs" secondAttribute="centerX" id="6rg-UW-aAU"/>
+                            <constraint firstItem="zeT-md-RWh" firstAttribute="top" secondItem="rdo-UF-4Xs" secondAttribute="bottom" constant="48" id="F5C-Mq-oHz"/>
                             <constraint firstItem="rdo-UF-4Xs" firstAttribute="centerY" secondItem="xhG-DC-ZTh" secondAttribute="centerY" id="SJ5-gc-1k4"/>
                             <constraint firstItem="dgN-br-ic0" firstAttribute="top" secondItem="lfe-Ni-4Cb" secondAttribute="bottom" constant="73" id="eUZ-6X-yVm"/>
                             <constraint firstItem="rdo-UF-4Xs" firstAttribute="centerX" secondItem="xhG-DC-ZTh" secondAttribute="centerX" id="l9V-aA-OV8"/>

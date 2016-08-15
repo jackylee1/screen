@@ -26,7 +26,6 @@ class CognitoHandler
                                                                      unauthRoleArn: nil,
                                                                      authRoleArn: nil,
                                                                      logins: nil)
-                        print("***Credentials was nil***")
         }
         
         let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
@@ -37,13 +36,9 @@ class CognitoHandler
             if(task.error != nil) {
                 print("Cognito Error: " + task.error!.localizedDescription)
             } else {
-                print("Successful Login to Cognito")
-                print("Cognito Success: \(task.result)")
                 self.defaults.setValue("\(task.result!)", forKey: "AWSUserID")
-                
             }
             return nil
         }
-        
     }
 }

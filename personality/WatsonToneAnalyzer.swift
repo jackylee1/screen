@@ -26,7 +26,6 @@ class WatsonToneAnalyzer
         let toneAnalyzer = ToneAnalyzer(username: username, password: password, version: version)
         
         let failure = { (error: NSError) in print(error) }
-        print("Before analysis")
         toneAnalyzer.getTone(text, failure: failure) { tones in
             self.processAnalyzedTone(tones,text: text)
         }
@@ -34,7 +33,6 @@ class WatsonToneAnalyzer
     }
     
     private func processAnalyzedTone(tones: ToneAnalysis, text: String){
-        print("processAnalyzedTone")
         let entity = NSEntityDescription.entityForName("Tone", inManagedObjectContext: managedObjectContext)
         let toneToReturn = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext) as! Tone
 
