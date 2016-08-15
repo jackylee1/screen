@@ -12,6 +12,7 @@ import FBSDKShareKit
 class PostViewController: UIViewController, UITextViewDelegate {
     
     let initialPlaceholderText = "What is on your mind?"
+    var analyzedTone: Tone?
 
     @IBOutlet weak var textToPost: UITextView!
     
@@ -21,7 +22,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostViewController.clearTextView), name: "PostedToFacebook", object: nil)    }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostViewController.segueToTone(_:)), name: "ToneAnalyzed", object: nil)    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,12 +74,30 @@ class PostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func didTapPostButton(sender: UIButton) {
         if textToPost.text != initialPlaceholderText {
-            FacebookHandler.sharedInstance.postToFeed(textToPost.text)
+            let toneAnalyzer = WatsonToneAnalyzer()
+            toneAnalyzer.analyzeTone(textToPost.text)
+//            performSegueWithIdentifier("analyzePostTone", sender: nil)
+//            FacebookHandler.sharedInstance.postToFeed(textToPost.text)
         }
+    }
+    
+    @objc private func segueToTone(notification: NSNotification) {
+        analyzedTone = (notification.userInfo!["tone" as NSObject] as! Tone)
+        performSegueWithIdentifier("analyzePostTone", sender: nil)
     }
     
     @objc private func clearTextView() {
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
+    }
+    
+    
+    @IBAction func unwindPostToFacebook(segue: UIStoryboardSegue) {
+        FacebookHandler.sharedInstance.postToFeed(textToPost.text)
+        clearTextView()
+    }
+    
+    @IBAction func unwindDoNotPost(segue: UIStoryboardSegue) {
+        
     }
 
     
@@ -87,6 +106,10 @@ class PostViewController: UIViewController, UITextViewDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         textToPost.delegate = nil
+        if segue.identifier == "analyzePostTone" {
+            let tonesViewController = segue.destinationViewController as! TonesViewController
+            tonesViewController.analyzedTone = analyzedTone
+        }
     }
     
 

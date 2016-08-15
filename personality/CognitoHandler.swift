@@ -20,17 +20,19 @@ class CognitoHandler
         let idToken = FBSDKAccessToken.currentAccessToken().tokenString
         
         if(credentialsProvider == nil){
-            credentialsProvider = AWSCognitoCredentialsProvider.init(regionType: Constants.regionType, identityId: nil, accountId: nil, identityPoolId: Constants.idPool, unauthRoleArn: nil, authRoleArn: nil, logins: nil)
+            credentialsProvider = AWSCognitoCredentialsProvider.init(regionType: Constants.regionType,
+                                                                     identityId: nil, accountId: nil,
+                                                                     identityPoolId: Constants.idPool,
+                                                                     unauthRoleArn: nil,
+                                                                     authRoleArn: nil,
+                                                                     logins: nil)
                         print("***Credentials was nil***")
         }
         
         let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
-        
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
-        
         credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]
 
-        
         credentialsProvider!.getIdentityId().continueWithBlock { (task: AWSTask!) -> AnyObject! in
             if(task.error != nil) {
                 print("Cognito Error: " + task.error!.localizedDescription)

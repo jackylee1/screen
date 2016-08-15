@@ -8,9 +8,12 @@
 
 import Foundation
 import ToneAnalyzerV3
+import CoreData
 
 class WatsonToneAnalyzer
 {
+    let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
+    
     func analyzeTone (text: String) {
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -22,28 +25,43 @@ class WatsonToneAnalyzer
         
         let toneAnalyzer = ToneAnalyzer(username: username, password: password, version: version)
         
-        
         let failure = { (error: NSError) in print(error) }
-        
-    
-        toneAnalyzer.getTone(text, failure: failure)  { tones in
+        print("Before analysis")
+        toneAnalyzer.getTone(text, failure: failure) { tones in
             self.processAnalyzedTone(tones,text: text)
         }
+        
     }
-    private func processAnalyzedTone(tones: ToneAnalysis, text: String) {
+    
+    private func processAnalyzedTone(tones: ToneAnalysis, text: String){
+        print("processAnalyzedTone")
+        let entity = NSEntityDescription.entityForName("Tone", inManagedObjectContext: managedObjectContext)
+        let toneToReturn = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext) as! Tone
+
+        toneToReturn.text = text
+        
         print(text)
         print()
 
         let documentTones = tones.documentTone
         for item in documentTones {
-            print("\(item.name):")
+            print("really: \(item.name):")
             let tonescore = item.tones
             for score in tonescore {
                 print("\(score.name) : \(score.score)")
+                if score.name != "Emotional Range" {
+                    toneToReturn.setValue(score.score, forKey: "\(score.name)")
+                } else {
+                    toneToReturn.setValue(score.score, forKey: "emotionalRange")
+
+                }
             }
             print()
         }
         print("--------------------")
+        
+        let dictionary = ["tone": toneToReturn]
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.postNotificationName("ToneAnalyzed", object: nil, userInfo: dictionary)
     }
-    
 }

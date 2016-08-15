@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
         }
         let user = userArray![0]
         
-        
         for item in user.posts! {
            let post = item as! Post
             print("Message: \(post.message!) Date: \(post.dateCreated!)")

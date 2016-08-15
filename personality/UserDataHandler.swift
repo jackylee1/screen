@@ -32,26 +32,25 @@ class UserDataHandler: NSObject {
         } catch let getUserError as NSError {
             print("Error fetching User: \(getUserError)")
         }
-        var user: AnyObject?
+        var user: User
         
         if userArray?.count > 0 {
             user = userArray![0]
             print("User Array")
         } else {
             let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedObjectContext!)
-            user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-            
+            user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!) as! User
         }
         
-        user?.setValue(userData.valueForKey("id"), forKey: "id")
-        user?.setValue(userData.valueForKey("email"), forKey: "email")
-        user?.setValue(userData.valueForKey("last_name"), forKey: "lastname")
-        user?.setValue(userData.valueForKey("first_name"), forKey: "firstname")
-        user?.setValue(userData.valueForKey("gender"), forKey: "gender")
-        user?.setValue(userData.valueForKey("political"), forKey: "political")
-        user?.setValue(userData.valueForKey("religion"), forKey: "religion")
-        user?.setValue(userData.valueForKey("hometown")?.valueForKey("name"), forKey: "hometown")
-        user?.setValue(userData.valueForKey("location")?.valueForKey("name"), forKey: "location")
+        user.id = userData.valueForKey("id") as? String
+        user.email = userData.valueForKey("email") as? String
+        user.firstname = userData.valueForKey("first_name") as? String
+        user.lastname = userData.valueForKey("last_name") as? String
+        user.gender = userData.valueForKey("gender") as? String
+        user.political = userData.valueForKey("political") as? String
+        user.religion = userData.valueForKey("religion") as? String
+        user.hometown = userData.valueForKey("hometown")?.valueForKey("name") as? String
+        user.location = userData.valueForKey("location")?.valueForKey("name") as? String
         
         let posts = userData.valueForKey("feed")?.valueForKey("data") as!
             [AnyObject]
@@ -66,10 +65,11 @@ class UserDataHandler: NSObject {
                 let dateValue = dateFormatter.dateFromString(date)
                 let epoch = dateValue?.timeIntervalSince1970
                 let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
-                let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-                post.setValue(message, forKey: "message")
-                post.setValue(epoch!, forKey: "dateCreated")
-                post.setValue(user, forKey: "user")
+                let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!) as! Post
+                
+                post.message = message as? String
+                post.dateCreated = epoch!
+                post.user = user
             }
         }
         saveUserToDynamoDB(id!)
@@ -91,7 +91,6 @@ class UserDataHandler: NSObject {
         }
         
         let user = userArray![0]
-    
         let userMapper = UserMapper()
         
         userMapper.firstname = user.firstname!
@@ -112,10 +111,8 @@ class UserDataHandler: NSObject {
         credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]
 
         let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
-        
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
-        
         let mapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
         mapper.save(userMapper).continueWithBlock { (task: AWSTask!) -> AnyObject! in
             if(task.error != nil) {
@@ -124,7 +121,6 @@ class UserDataHandler: NSObject {
             }
             return nil
         }
-
     }
     
     private func savePostToDynamoDB(id: AnyObject) {
@@ -139,10 +135,8 @@ class UserDataHandler: NSObject {
         } catch let getUserError as NSError {
             print("Error fetching User: \(getUserError)")
         }
-        
         let user = userArray![0]
         let facebookPost = PostMapper()
-        
         
         for item in user.posts! {
             let post = item as! Post
@@ -154,9 +148,7 @@ class UserDataHandler: NSObject {
             credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]
             
             let configuration = AWSServiceConfiguration(region: Constants.regionType, credentialsProvider: credentialsProvider)
-            
             AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
-            
             
             let mapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
             mapper.save(facebookPost).continueWithBlock { (task: AWSTask!) -> AnyObject! in
@@ -166,13 +158,8 @@ class UserDataHandler: NSObject {
                 }
                 return nil
             }
-            let toneAnalyzer = WatsonToneAnalyzer()
-            toneAnalyzer.analyzeTone(post.message!)
-
-
-            
+//            let toneAnalyzer = WatsonToneAnalyzer()
+//            toneAnalyzer.analyzeTone(post.message!)
         }
-
     }
-    
 }

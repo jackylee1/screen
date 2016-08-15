@@ -24,5 +24,10 @@ extension Tone {
     @NSManaged var extraversion: NSNumber?
     @NSManaged var agreeableness: NSNumber?
     @NSManaged var emotionalRange: NSNumber?
+    @NSManaged var analytical: NSNumber?
+    @NSManaged var confident: NSNumber?
+    @NSManaged var tentative: NSNumber?
+    @NSManaged var text: String?
+    
 
 }

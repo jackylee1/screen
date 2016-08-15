@@ -24,12 +24,9 @@ let π = CGFloat(M_PI)
     
     
     override func drawRect(rect: CGRect) {
-        
         let center = CGPoint(x:bounds.width/2, y:bounds.height/2)
         let radius: CGFloat = max(bounds.width, bounds.height)
         let arcWidth: CGFloat = 6
-        
-        
         
         let backgroundStartAngle: CGFloat = π
         let backgroundEndAngle: CGFloat = 4*π
@@ -39,12 +36,11 @@ let π = CGFloat(M_PI)
                                           startAngle: backgroundStartAngle,
                                           endAngle: backgroundEndAngle,
                                           clockwise: true)
-        
         backgroundPath.lineWidth = arcWidth
         backgroundColour.setStroke()
         backgroundPath.stroke()
-        
-        
+//        Arcs are drawn using radians for start and end points. To calculate the endpoint
+//        multiply 360 degrees by the tone amount then multiply by π/180 to convert to radians.
         let toneStartAngle = 3*π/2
         let toneEndAngle:CGFloat = ((toneAmount*360)-90) * (π/180)
         
@@ -56,8 +52,6 @@ let π = CGFloat(M_PI)
         tonePath.lineWidth = arcWidth
         toneColour.setStroke()
         tonePath.stroke()
-        
-        
     }
 
 
