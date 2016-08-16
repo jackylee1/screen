@@ -15,9 +15,15 @@ import FBSDKLoginKit
 
 
 class UserDataHandler: NSObject {
+    static let sharedInstance = UserDataHandler()
     var managedObjectContext: NSManagedObjectContext?
     var credentialsProvider: AWSCognitoCredentialsProvider?
     var defaults = NSUserDefaults.standardUserDefaults()
+    
+    override init() {
+        super.init()
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserDataHandler.saveTone), name: "ToneAnalyzedForSave", object: nil)
+    }
     
     func saveUserData(userData: AnyObject) {
         let id = userData.valueForKey("id")
@@ -72,25 +78,26 @@ class UserDataHandler: NSObject {
                 post.user = user
             }
         }
+        analyzePostTone(id!)
         saveUserToDynamoDB(id!)
         savePostToDynamoDB(id!)
     }
     
     
     private func saveUserToDynamoDB(id: AnyObject) {
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
-        fetchRequest.predicate = userPredicate
+//        let fetchRequest = NSFetchRequest(entityName: "User")
+//        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
+//        fetchRequest.predicate = userPredicate
+//        
+//        var userArray: [User]?
+//        
+//        do {
+//            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
+//        } catch let getUserError as NSError {
+//            print("Error fetching User: \(getUserError)")
+//        }
         
-        var userArray: [User]?
-        
-        do {
-            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
-        } catch let getUserError as NSError {
-            print("Error fetching User: \(getUserError)")
-        }
-        
-        let user = userArray![0]
+        let user = fetchUser(id)
         let userMapper = UserMapper()
         
         userMapper.firstname = user.firstname!
@@ -123,7 +130,42 @@ class UserDataHandler: NSObject {
         }
     }
     
-    private func savePostToDynamoDB(id: AnyObject) {
+    private func analyzePostTone(id: AnyObject) {
+        let user = fetchUser(id)
+        let toneAnalyzer = WatsonToneAnalyzer()
+        
+        for post in user.posts! {
+            let postToAnalyze = post as! Post
+            toneAnalyzer.analyzeTone(post.message, context: "saving", post: postToAnalyze)
+        }
+        
+    }
+    
+    @objc private func saveTone(notification: NSNotification) {
+//        let post = (notification.userInfo!["post" as NSObject] as! Post)
+        let tone = (notification.userInfo!["tone" as NSObject] as! Tone)
+        
+        let fetchRequest = NSFetchRequest(entityName: "Post")
+        let userPredicate = NSPredicate(format: "message == %@", argumentArray: [tone.text!])
+        fetchRequest.predicate = userPredicate
+        
+        var postArray: [Post]?
+        
+        do {
+            postArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [Post]
+        } catch let getUserError as NSError {
+            print("Error fetching User: \(getUserError)")
+        }
+        let post = postArray![0]
+        
+        
+        post.tone = tone
+
+        
+        
+    }
+    
+    private func fetchUser(id: AnyObject) -> User{
         let fetchRequest = NSFetchRequest(entityName: "User")
         let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
         fetchRequest.predicate = userPredicate
@@ -136,6 +178,24 @@ class UserDataHandler: NSObject {
             print("Error fetching User: \(getUserError)")
         }
         let user = userArray![0]
+        
+        return user
+
+    }
+    
+    private func savePostToDynamoDB(id: AnyObject) {
+//        let fetchRequest = NSFetchRequest(entityName: "User")
+//        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
+//        fetchRequest.predicate = userPredicate
+//        
+//        var userArray: [User]?
+//        
+//        do {
+//            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
+//        } catch let getUserError as NSError {
+//            print("Error fetching User: \(getUserError)")
+//        }
+        let user = fetchUser(id)
         let facebookPost = PostMapper()
         
         for item in user.posts! {
@@ -158,8 +218,6 @@ class UserDataHandler: NSObject {
                 }
                 return nil
             }
-//            let toneAnalyzer = WatsonToneAnalyzer()
-//            toneAnalyzer.analyzeTone(post.message!)
         }
     }
 }

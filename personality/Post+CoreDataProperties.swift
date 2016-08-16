@@ -17,5 +17,6 @@ extension Post {
     @NSManaged var dateCreated: NSNumber?
     @NSManaged var message: String?
     @NSManaged var user: User?
+    @NSManaged var tone: Tone?
 
 }

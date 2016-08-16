@@ -28,6 +28,7 @@ extension Tone {
     @NSManaged var confident: NSNumber?
     @NSManaged var tentative: NSNumber?
     @NSManaged var text: String?
+    @NSManaged var post: Post?
     
 
 }

@@ -13,6 +13,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
     
     let initialPlaceholderText = "What is on your mind?"
     var analyzedTone: Tone?
+    var post: Post?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var textToPost: UITextView!
@@ -25,7 +26,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostViewController.segueToTone(_:)), name: "ToneAnalyzed", object: nil)    }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostViewController.segueToTone(_:)), name: "ToneAnalyzedForSegue", object: nil)    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,7 +57,6 @@ class PostViewController: UIViewController, UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        print("should change text")
         let newlength = textView.text.utf16.count + text.utf16.count - range.length
         if newlength > 0 {
             if textView == textToPost && textView.text == initialPlaceholderText {
@@ -79,7 +79,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         if textToPost.text != initialPlaceholderText {
             activityIndicator.startAnimating()
             let toneAnalyzer = WatsonToneAnalyzer()
-            toneAnalyzer.analyzeTone(textToPost.text)
+            toneAnalyzer.analyzeTone(textToPost.text, context: "posting", post: post)
         }
     }
     
@@ -119,6 +119,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         if segue.identifier == "analyzePostTone" {
             let tonesViewController = segue.destinationViewController as! TonesViewController
             tonesViewController.analyzedTone = analyzedTone
+            tonesViewController.disablePostToFacebook = false
         }
     }
     

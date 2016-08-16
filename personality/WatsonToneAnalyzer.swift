@@ -13,8 +13,15 @@ import CoreData
 class WatsonToneAnalyzer
 {
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
+    var postContext: String?
+    var originalPost: Post?
     
-    func analyzeTone (text: String) {
+    func analyzeTone (text: String, context: String, post: Post?) {
+        postContext = context
+        if context == "saving" {
+            originalPost = post
+        }
+        
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -43,7 +50,6 @@ class WatsonToneAnalyzer
 
         let documentTones = tones.documentTone
         for item in documentTones {
-            print("really: \(item.name):")
             let tonescore = item.tones
             for score in tonescore {
                 print("\(score.name) : \(score.score)")
@@ -58,8 +64,17 @@ class WatsonToneAnalyzer
         }
         print("--------------------")
         
-        let dictionary = ["tone": toneToReturn]
         let nc = NSNotificationCenter.defaultCenter()
-        nc.postNotificationName("ToneAnalyzed", object: nil, userInfo: dictionary)
+        
+        
+        let   dictionary = ["tone": toneToReturn]
+        
+        
+        if postContext == "posting" {
+            nc.postNotificationName("ToneAnalyzedForSegue", object: nil, userInfo: dictionary)
+        } else if postContext == "saving" {
+            nc.postNotificationName("ToneAnalyzedForSave", object: nil, userInfo: dictionary)
+
+        }
     }
 }

@@ -42,6 +42,7 @@
 		1CFD56C81D603D2D00BD73EA /* ToneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56C71D603D2D00BD73EA /* ToneView.swift */; };
 		1CFD56CA1D603E5F00BD73EA /* TonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56C91D603E5F00BD73EA /* TonesViewController.swift */; };
 		1CFD56CC1D60562900BD73EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56CB1D60562900BD73EA /* PostViewController.swift */; };
+		1CFE9CA51D639AAA006513B7 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		1CFD56C71D603D2D00BD73EA /* ToneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneView.swift; sourceTree = "<group>"; };
 		1CFD56C91D603E5F00BD73EA /* TonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TonesViewController.swift; sourceTree = "<group>"; };
 		1CFD56CB1D60562900BD73EA /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		4AB2B1CE74856F8F0AA93849 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7F9D1FBD8C173CB7B723572F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF82679B5C4675688C48F315 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,13 +189,14 @@
 				1C9B95761D5406170092349C /* AppDelegate.swift */,
 				1CAE889E1D556CEA008D3710 /* FacebookHandler.swift */,
 				1CAE88A01D558238008D3710 /* UserDataHandler.swift */,
+				1C9918C51D56F2AC008DC32F /* UserMapper.swift */,
 				1CBB530E1D5451800090299A /* LoginViewController.swift */,
 				1CF784DB1D568EC900131928 /* CognitoHandler.swift */,
 				1CF784DD1D56910A00131928 /* Constants.swift */,
-				1C9918C51D56F2AC008DC32F /* UserMapper.swift */,
 				1CFD56CB1D60562900BD73EA /* PostViewController.swift */,
 				1CBB90901D5C35DE0096EC25 /* PostMapper.swift */,
 				1CA4B3791D62F1D900E8C07A /* PostTableViewController.swift */,
+				1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */,
 			);
 			path = personality;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CBB530F1D5451800090299A /* LoginViewController.swift in Sources */,
+				1CFE9CA51D639AAA006513B7 /* PostDetailViewController.swift in Sources */,
 				1C9B957F1D5406170092349C /* personality.xcdatamodeld in Sources */,
 				1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */,
 				1CFD56CC1D60562900BD73EA /* PostViewController.swift in Sources */,

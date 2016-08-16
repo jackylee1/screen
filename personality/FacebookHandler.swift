@@ -44,7 +44,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
             } else {
                 let cognito = CognitoHandler()
                 cognito.loginToCognito()
-                let userDataHandler = UserDataHandler()
+                let userDataHandler = UserDataHandler.sharedInstance
                 userDataHandler.managedObjectContext = self.managedObjectContext
                 userDataHandler.saveUserData(result)
             }

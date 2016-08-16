@@ -23,12 +23,22 @@ class TonesViewController: UIViewController {
     @IBOutlet weak var agreeableness: ToneView!
     @IBOutlet weak var emotionalRange: ToneView!
     
+    @IBOutlet weak var postToFacebookButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
     var analyzedTone: Tone?
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
+    
+    var disablePostToFacebook: Bool?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postToFacebookButton.hidden = disablePostToFacebook!
+        cancelButton.hidden = disablePostToFacebook!
+        backButton.hidden = !disablePostToFacebook!
         
         anger.toneAmount = analyzedTone?.anger as! CGFloat
         disgust.toneAmount = analyzedTone?.disgust as! CGFloat

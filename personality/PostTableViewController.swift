@@ -20,6 +20,8 @@ class PostTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let fetchRequest = NSFetchRequest(entityName: "Post")
+        let dateSort = NSSortDescriptor(key: "dateCreated", ascending: false)
+        fetchRequest.sortDescriptors = [dateSort]
         
         do {
             posts = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Post]
@@ -118,7 +120,12 @@ class PostTableViewController: UITableViewController {
             post = posts[indexPath.row]
         }
         cell.textLabel?.text = post.message
-        cell.detailTextLabel?.text = "\(post.dateCreated)"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        let date = NSDate(timeIntervalSince1970: post.dateCreated! as Double)
+        let formattedDate = dateFormatter.stringFromDate(date)
+        
+        cell.detailTextLabel?.text = formattedDate
 
         return cell
     }
@@ -128,17 +135,33 @@ class PostTableViewController: UITableViewController {
             superView.removeFromSuperview()
         }
     }
+    
+    @IBAction func unwindFromPostDetail(segue: UIStoryboardSegue) {
+        
+    }
 
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "postDetail" {
+            let postDetailViewController = segue.destinationViewController as! PostDetailViewController
+            let postToPass: Post
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if searchController.active {
+                    postToPass = filteredPosts[indexPath.row]
+                } else {
+                    postToPass = posts[indexPath.row]
+                }
+                postDetailViewController.post = postToPass
+            }
+            
+        }
+        
     }
-    */
+    
 
 }
 
