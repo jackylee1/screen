@@ -13,12 +13,15 @@ class PostViewController: UIViewController, UITextViewDelegate {
     
     let initialPlaceholderText = "What is on your mind?"
     var analyzedTone: Tone?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var textToPost: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textToPost.delegate = self
+        activityIndicator.hidesWhenStopped = true
+        
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 
@@ -53,6 +56,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        print("should change text")
         let newlength = textView.text.utf16.count + text.utf16.count - range.length
         if newlength > 0 {
             if textView == textToPost && textView.text == initialPlaceholderText {
@@ -71,13 +75,11 @@ class PostViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
     @IBAction func didTapPostButton(sender: UIButton) {
         if textToPost.text != initialPlaceholderText {
+            activityIndicator.startAnimating()
             let toneAnalyzer = WatsonToneAnalyzer()
             toneAnalyzer.analyzeTone(textToPost.text)
-//            performSegueWithIdentifier("analyzePostTone", sender: nil)
-//            FacebookHandler.sharedInstance.postToFeed(textToPost.text)
         }
     }
     
@@ -92,16 +94,20 @@ class PostViewController: UIViewController, UITextViewDelegate {
     
     
     @IBAction func unwindPostToFacebook(segue: UIStoryboardSegue) {
+        activityIndicator.stopAnimating()
         FacebookHandler.sharedInstance.postToFeed(textToPost.text)
-        clearTextView()
+        viewDidLoad()
     }
     
     @IBAction func unwindDoNotPost(segue: UIStoryboardSegue) {
-        
+        activityIndicator.stopAnimating()
+        viewDidLoad()
     }
     
     @IBAction func clearButtonTapped(sender: UIButton) {
-        clearTextView()
+//        clearTextView()
+        applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
+
     }
 
     

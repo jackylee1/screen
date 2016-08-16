@@ -22,6 +22,7 @@
 		1C9B95841D5406170092349C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B95821D5406170092349C /* LaunchScreen.storyboard */; };
 		1C9B958F1D5406170092349C /* personalityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B958E1D5406170092349C /* personalityTests.swift */; };
 		1C9B959A1D5406170092349C /* personalityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B95991D5406170092349C /* personalityUITests.swift */; };
+		1CA4B37A1D62F1D900E8C07A /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA4B3791D62F1D900E8C07A /* PostTableViewController.swift */; };
 		1CA5C80E1D5D598D002E9176 /* ToneAnalyzerV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */; };
 		1CA5C80F1D5D598D002E9176 /* ToneAnalyzerV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1CA5C8131D5D59F3002E9176 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA5C8111D5D59E3002E9176 /* Alamofire.framework */; };
@@ -98,6 +99,7 @@
 		1C9B95951D5406170092349C /* personalityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = personalityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B95991D5406170092349C /* personalityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalityUITests.swift; sourceTree = "<group>"; };
 		1C9B959B1D5406170092349C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA4B3791D62F1D900E8C07A /* PostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		1CA5C8091D5D5759002E9176 /* ToneAnalyzerV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneAnalyzerV3.framework; sourceTree = "<group>"; };
 		1CA5C8111D5D59E3002E9176 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1CA5C8151D5D5A33002E9176 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				1C9918C51D56F2AC008DC32F /* UserMapper.swift */,
 				1CFD56CB1D60562900BD73EA /* PostViewController.swift */,
 				1CBB90901D5C35DE0096EC25 /* PostMapper.swift */,
+				1CA4B3791D62F1D900E8C07A /* PostTableViewController.swift */,
 			);
 			path = personality;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				1CAE88A11D558238008D3710 /* UserDataHandler.swift in Sources */,
 				1CFD56CC1D60562900BD73EA /* PostViewController.swift in Sources */,
 				1C8C8DD01D610DD4001D26E8 /* User.swift in Sources */,
+				1CA4B37A1D62F1D900E8C07A /* PostTableViewController.swift in Sources */,
 				1C8C8DD41D610EA1001D26E8 /* Tone+CoreDataProperties.swift in Sources */,
 				1CFD56C81D603D2D00BD73EA /* ToneView.swift in Sources */,
 				1C8C8DCE1D610DD4001D26E8 /* Post.swift in Sources */,

@@ -41,44 +41,16 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func userTestButton(sender: UIButton) {
-        var userArray: [User]?
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        do {
-            userArray = try managedObjectContext.executeFetchRequest(fetchRequest) as? [User]
-        } catch let getUserError as NSError {
-            print("Error fetching User: \(getUserError)")
-        }
-        let user = userArray![0]
-        
-        for item in user.posts! {
-           let post = item as! Post
-            print("Message: \(post.message!) Date: \(post.dateCreated!)")
-        }
-        
-        let entity = NSEntityDescription.entityForName("Tone", inManagedObjectContext: managedObjectContext)
-        let tones = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext) as! Tone
-        
-        tones.anger = 0.126792
-        tones.disgust = 0.380786
-        tones.fear = 0.087298
-        tones.joy = 0.646714
-        tones.sadness = 0.160459
-        
-        tones.openness = 0.812
-        tones.conscientiousness = 0.916
-        tones.extraversion = 0.463
-        tones.agreeableness = 0.238
-        tones.emotionalRange = 0.235
-        
-        performSegueWithIdentifier("toTones", sender: nil)
-    }
     
     @IBAction func unwindFromTones(segue: UIStoryboardSegue) {
         
     }
     
     @IBAction func unwindFromPost(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindFromPostList(segue: UIStoryboardSegue) {
         
     }
 
