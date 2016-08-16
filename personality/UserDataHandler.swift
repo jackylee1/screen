@@ -105,7 +105,7 @@ class UserDataHandler: NSObject {
         
         if(credentialsProvider == nil){
             credentialsProvider = AWSCognitoCredentialsProvider.init(regionType: Constants.regionType, identityId: nil, accountId: nil, identityPoolId: Constants.idPool, unauthRoleArn: nil, authRoleArn: nil, logins: nil)
-            print("***Credentials was nil***")
+//            print("***Credentials was nil***")
         }
         let idToken = FBSDKAccessToken.currentAccessToken().tokenString
         credentialsProvider!.logins = [AWSCognitoLoginProviderKey.Facebook.rawValue : idToken]

@@ -26,14 +26,6 @@ class PostTableViewController: UITableViewController {
         } catch let getUserError as NSError {
             print("Error fetching User: \(getUserError)")
         }
-
-        
-//        posts = [
-//            Candy(category:"Chocolate", name:"Chocolate Bar"),
-//            Candy(category:"Chocolate", name:"Chocolate Chip"),
-//            Candy(category:"Chocolate", name:"Dark Chocolate"),
-//            Candy(category:"Hard", name:"Lollipop")
-//        ]
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -46,18 +38,14 @@ class PostTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredPosts = posts.filter { post in
             let catagoryMatch = checkDateScope(Int(post.dateCreated!), scope: scope)
             if searchText == "" {
-                print("empty: \(catagoryMatch)")
                 return catagoryMatch
             } else {
-                print("full")
                 return catagoryMatch && post.message!.lowercaseString.containsString(searchText.lowercaseString)
             }
         }
@@ -109,12 +97,11 @@ class PostTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
+        if searchController.active {
             return filteredPosts.count
         }
         return posts.count
@@ -125,7 +112,7 @@ class PostTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let post: Post
-        if searchController.active { // && searchController.searchBar.text != "" {
+        if searchController.active {
             post = filteredPosts[indexPath.row]
         } else {
             post = posts[indexPath.row]
@@ -143,42 +130,6 @@ class PostTableViewController: UITableViewController {
     }
 
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     /*
     // MARK: - Navigation
 
