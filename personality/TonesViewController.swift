@@ -40,15 +40,17 @@ class TonesViewController: UIViewController {
         cancelButton.hidden = disablePostToFacebook!
         backButton.hidden = !disablePostToFacebook!
         
-        anger.toneAmount = analyzedTone?.anger as! CGFloat
-        disgust.toneAmount = analyzedTone?.disgust as! CGFloat
-        fear.toneAmount = analyzedTone?.fear as! CGFloat
-        joy.toneAmount = analyzedTone?.joy as! CGFloat
-        sadness.toneAmount = analyzedTone?.sadness as! CGFloat
-        openness.toneAmount = analyzedTone?.openness as! CGFloat
-        conscientiousness.toneAmount = analyzedTone?.conscientiousness as! CGFloat
-        agreeableness.toneAmount = analyzedTone?.agreeableness as! CGFloat
-        emotionalRange.toneAmount = analyzedTone?.emotionalRange as! CGFloat
+//        Setting the tone amount to one set the radians to draw to 3π/4 which causes it not to draw a circle as 
+//        that is the start point. So we set it to very close to 1 which appears to draw a close circle.
+        anger.toneAmount = (analyzedTone?.anger == 1.0 ? CGFloat(0.99999) : analyzedTone?.anger as! CGFloat)
+        disgust.toneAmount = (analyzedTone?.disgust == 1.0 ? CGFloat(0.99999) : analyzedTone?.disgust as! CGFloat)
+        fear.toneAmount = (analyzedTone?.fear == 1.0 ? CGFloat(0.99999) : analyzedTone?.fear as! CGFloat)
+        joy.toneAmount = (analyzedTone?.joy == 1.0 ? CGFloat(0.99999) : analyzedTone?.joy as! CGFloat)
+        sadness.toneAmount = (analyzedTone?.sadness == 1.0 ? CGFloat(0.99999) : analyzedTone?.sadness as! CGFloat)
+        openness.toneAmount = (analyzedTone?.openness == 1.0 ? CGFloat(0.99999) : analyzedTone?.openness as! CGFloat)
+        conscientiousness.toneAmount = (analyzedTone?.conscientiousness == 1.0 ? CGFloat(0.99999) : analyzedTone?.conscientiousness as! CGFloat)
+        agreeableness.toneAmount = (analyzedTone?.agreeableness == 1.0 ? CGFloat(0.99999) : analyzedTone?.agreeableness as! CGFloat)
+        emotionalRange.toneAmount = (analyzedTone?.emotionalRange == 1.0 ? CGFloat(0.99999) : analyzedTone?.emotionalRange as! CGFloat)
         
     }
 
