@@ -27,14 +27,14 @@
                                             <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rmy-nR-c4X">
                                             <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -60,7 +60,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rf-RJ-GEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DRR-Ne-Sfx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="211"/>
+            <point key="canvasLocation" x="1245" y="211"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="749-bL-3OS">
@@ -122,7 +122,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Di2-hj-j6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Phb-Yb-VL8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2335" y="211"/>
+            <point key="canvasLocation" x="1931" y="211"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -173,7 +173,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="historyButton" destination="9Zu-gy-avR" id="c1T-Ym-l1R"/>
                         <outlet property="loginButton" destination="UM4-V9-bE6" id="rbX-qM-sre"/>
+                        <outlet property="postButton" destination="YVr-Ds-ilr" id="ZZu-3Q-fOL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -251,7 +253,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flQ-YA-nr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vus-tF-05r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="1072"/>
+            <point key="canvasLocation" x="-131" y="936"/>
         </scene>
         <!--Tones View Controller-->
         <scene sceneID="WkT-8V-XEC">
@@ -592,7 +594,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAY-az-ROz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QIs-j2-tCI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2335" y="1072"/>
+            <point key="canvasLocation" x="1931" y="936"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ga2-t6-jTV">
@@ -610,10 +612,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7k-tl-px4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="211"/>
+            <point key="canvasLocation" x="557" y="211"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Q2F-JD-7ni"/>
+        <segue reference="eDt-O7-YJo"/>
     </inferredMetricsTieBreakers>
 </document>

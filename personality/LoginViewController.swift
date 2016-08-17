@@ -17,22 +17,32 @@ class LoginViewController: UIViewController {
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
     var defaults = NSUserDefaults.standardUserDefaults()
 
+    @IBOutlet weak var historyButton: UIButton!
+    @IBOutlet weak var postButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideButtons(true)
+
         self.defaults.setValue("0", forKey: "AWSUserID")
-        
+        FacebookHandler.sharedInstance.loginViewController = self
         let hasCurrentToken = FacebookHandler.sharedInstance.facebookToken()
         
         if hasCurrentToken {
+            hideButtons(false)
             facebook.returnUserData()
         } else {
             loginButton.readPermissions = ["public_profile", "email", "user_friends", "ads_read", "user_birthday", "user_location", "user_likes", "user_posts", "user_religion_politics", "user_about_me", "user_education_history", "user_hometown", "user_photos"]
             loginButton.publishPermissions = ["publish_actions"]
             loginButton.delegate = facebook
+//            hideButtons(true)
         }
         
+    }
+    
+    func hideButtons(state: Bool) {
+        historyButton.hidden = state
+        postButton.hidden = state
     }
     
     

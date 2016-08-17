@@ -13,6 +13,7 @@ import FBSDKLoginKit
 class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
     static let sharedInstance = FacebookHandler()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var loginViewController: LoginViewController?
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         if ((error) != nil) {
@@ -20,6 +21,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
         } else if result.isCancelled {
             print("Facebook login cancelled")
         } else {
+            loginViewController?.hideButtons(false)
             returnUserData()
         }
     }
@@ -33,6 +35,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
+        loginViewController!.hideButtons(true)
     }
     
     func returnUserData() {
