@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1C9B95721D5406170092349C"
                BuildableName = "personality.app"
                BlueprintName = "personality"
-               ReferencedContainer = "container:personality.xcodeproj">
+               ReferencedContainer = "container:Screen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "1C9B95891D5406170092349C"
                BuildableName = "personalityTests.xctest"
                BlueprintName = "personalityTests"
-               ReferencedContainer = "container:personality.xcodeproj">
+               ReferencedContainer = "container:Screen.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "1C9B95941D5406170092349C"
                BuildableName = "personalityUITests.xctest"
                BlueprintName = "personalityUITests"
-               ReferencedContainer = "container:personality.xcodeproj">
+               ReferencedContainer = "container:Screen.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "1C9B95721D5406170092349C"
             BuildableName = "personality.app"
             BlueprintName = "personality"
-            ReferencedContainer = "container:personality.xcodeproj">
+            ReferencedContainer = "container:Screen.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "1C9B95721D5406170092349C"
             BuildableName = "personality.app"
             BlueprintName = "personality"
-            ReferencedContainer = "container:personality.xcodeproj">
+            ReferencedContainer = "container:Screen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "1C9B95721D5406170092349C"
             BuildableName = "personality.app"
             BlueprintName = "personality"
-            ReferencedContainer = "container:personality.xcodeproj">
+            ReferencedContainer = "container:Screen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

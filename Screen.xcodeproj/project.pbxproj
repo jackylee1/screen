@@ -43,6 +43,7 @@
 		1CFD56CA1D603E5F00BD73EA /* TonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56C91D603E5F00BD73EA /* TonesViewController.swift */; };
 		1CFD56CC1D60562900BD73EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56CB1D60562900BD73EA /* PostViewController.swift */; };
 		1CFE9CA51D639AAA006513B7 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */; };
+		1CFE9CA71D63E155006513B7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CFE9CA61D63E155006513B7 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		1CFD56C91D603E5F00BD73EA /* TonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TonesViewController.swift; sourceTree = "<group>"; };
 		1CFD56CB1D60562900BD73EA /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		1CFE9CA61D63E155006513B7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4AB2B1CE74856F8F0AA93849 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7F9D1FBD8C173CB7B723572F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF82679B5C4675688C48F315 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				1CBB90901D5C35DE0096EC25 /* PostMapper.swift */,
 				1CA4B3791D62F1D900E8C07A /* PostTableViewController.swift */,
 				1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */,
+				1CFE9CA61D63E155006513B7 /* Media.xcassets */,
 			);
 			path = personality;
 			sourceTree = "<group>";
@@ -338,7 +341,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1C9B956E1D5406170092349C /* Build configuration list for PBXProject "personality" */;
+			buildConfigurationList = 1C9B956E1D5406170092349C /* Build configuration list for PBXProject "Screen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -363,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CFE9CA71D63E155006513B7 /* Media.xcassets in Resources */,
 				1C9B95841D5406170092349C /* LaunchScreen.storyboard in Resources */,
 				1CBB530D1D544DC10090299A /* Default-568h@2x.png in Resources */,
 				1C9B95811D5406170092349C /* Assets.xcassets in Resources */,
@@ -699,7 +703,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C9B956E1D5406170092349C /* Build configuration list for PBXProject "personality" */ = {
+		1C9B956E1D5406170092349C /* Build configuration list for PBXProject "Screen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C9B959C1D5406170092349C /* Debug */,
