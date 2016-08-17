@@ -74,15 +74,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-UL-S1b">
-                                <rect key="frame" x="20" y="82" width="560" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="q4H-pS-uZl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSi-U0-WrS">
                                 <rect key="frame" x="20" y="20" width="46" height="30"/>
                                 <constraints>
@@ -103,17 +94,36 @@
                                     <segue destination="105-O6-yG3" kind="presentation" identifier="reviewPostTone" id="Q2F-JD-7ni"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-UL-S1b">
+                                <rect key="frame" x="20" y="82" width="560" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="q4H-pS-uZl"/>
+                                    <constraint firstAttribute="width" constant="560" id="yOE-h1-SpO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8q8-UL-S1b" firstAttribute="top" secondItem="LSi-U0-WrS" secondAttribute="bottom" constant="32" id="1nf-aA-mxz"/>
+                            <constraint firstItem="tMx-NL-zQS" firstAttribute="top" secondItem="8q8-UL-S1b" secondAttribute="bottom" constant="75" id="2qO-sr-lWq"/>
                             <constraint firstItem="LSi-U0-WrS" firstAttribute="leading" secondItem="8q8-UL-S1b" secondAttribute="leading" id="83I-4U-hyj"/>
+                            <constraint firstItem="tMx-NL-zQS" firstAttribute="centerX" secondItem="Xoz-1g-RMR" secondAttribute="centerX" id="BPG-Hm-miN"/>
                             <constraint firstItem="LSi-U0-WrS" firstAttribute="top" secondItem="ux9-Yw-Bbg" secondAttribute="bottom" id="LqP-cJ-hKL"/>
-                            <constraint firstItem="bjs-EU-0tj" firstAttribute="top" secondItem="8q8-UL-S1b" secondAttribute="bottom" constant="390" id="Ymp-IM-0s3"/>
                             <constraint firstItem="8q8-UL-S1b" firstAttribute="trailing" secondItem="Xoz-1g-RMR" secondAttribute="trailingMargin" id="gzo-v6-Ep1"/>
                             <constraint firstItem="8q8-UL-S1b" firstAttribute="leading" secondItem="Xoz-1g-RMR" secondAttribute="leadingMargin" id="hIP-U2-yyg"/>
+                            <constraint firstItem="8q8-UL-S1b" firstAttribute="centerX" secondItem="Xoz-1g-RMR" secondAttribute="centerX" id="wL2-dR-gb9"/>
                             <constraint firstItem="tMx-NL-zQS" firstAttribute="centerY" secondItem="Xoz-1g-RMR" secondAttribute="centerY" id="xqE-t7-gi5"/>
                             <constraint firstItem="tMx-NL-zQS" firstAttribute="centerX" secondItem="8q8-UL-S1b" secondAttribute="centerX" id="yCD-6U-Cbl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1nf-aA-mxz"/>
+                                <exclude reference="yCD-6U-Cbl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="textView" destination="8q8-UL-S1b" id="Cqp-uX-8uL"/>
@@ -616,6 +626,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eDt-O7-YJo"/>
+        <segue reference="Q2F-JD-7ni"/>
     </inferredMetricsTieBreakers>
 </document>

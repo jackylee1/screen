@@ -66,16 +66,23 @@ class UserDataHandler: NSObject {
         
         
         for item in posts {
-            if let message = item.valueForKey("message") {
+            if let message = item.valueForKey("message") as? String {
                 let date = item.valueForKey("created_time") as! String
                 let dateValue = dateFormatter.dateFromString(date)
                 let epoch = dateValue?.timeIntervalSince1970
-                let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
-                let post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!) as! Post
                 
-                post.message = message as? String
-                post.dateCreated = epoch!
-                post.user = user
+                var post: Post?
+                
+                post = getPost(message)
+                
+                if let _ = post {} else {
+                    let entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext!)
+                    post = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!) as? Post
+                }
+                
+                post!.message = message
+                post!.dateCreated = epoch!
+                post!.user = user
             }
         }
         analyzePostTone(id!)
@@ -83,20 +90,31 @@ class UserDataHandler: NSObject {
         savePostToDynamoDB(id!)
     }
     
+    private func getPost(message: String) -> Post? {
+        let fetchRequest = NSFetchRequest(entityName: "Post")
+        let postPredicate = NSPredicate(format: "message == %@", argumentArray: [message])
+        fetchRequest.predicate = postPredicate
+
+        var postArray: [Post]?
+        var post: Post?
+
+        do {
+            postArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [Post]
+        } catch let getUserError as NSError {
+            print("Error fetching User: \(getUserError)")
+        }
+        
+        if postArray?.count > 0 {
+            post = postArray![0]
+        }
+        
+        return post
+
+    }
+    
     
     private func saveUserToDynamoDB(id: AnyObject) {
-//        let fetchRequest = NSFetchRequest(entityName: "User")
-//        let userPredicate = NSPredicate(format: "id == %@", argumentArray: [id])
-//        fetchRequest.predicate = userPredicate
-//        
-//        var userArray: [User]?
-//        
-//        do {
-//            userArray = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [User]
-//        } catch let getUserError as NSError {
-//            print("Error fetching User: \(getUserError)")
-//        }
-        
+//
         let user = fetchUser(id)
         let userMapper = UserMapper()
         
