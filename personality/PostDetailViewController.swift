@@ -27,7 +27,7 @@ class PostDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindFromTonesView(segue: UIStoryboardSegue) {
+    @IBAction func unwindToDetailFromTonesView(segue: UIStoryboardSegue) {
         
     }
 
@@ -37,7 +37,8 @@ class PostDetailViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "reviewPostTone" {
-            let tonesViewController = segue.destinationViewController as! TonesViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let tonesViewController = navigationController.topViewController as! TonesViewController
             tonesViewController.analyzedTone = post?.tone
             tonesViewController.disablePostToFacebook = true
         }

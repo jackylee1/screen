@@ -17,6 +17,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var textToPost: UITextView!
+    @IBOutlet weak var clearButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,13 @@ class PostViewController: UIViewController, UITextViewDelegate {
     private func applyPlaceholderStyle(postTextView: UITextView, placeholderText: String) {
         postTextView.textColor = UIColor.lightGrayColor()
         postTextView.text = placeholderText
+        clearButton.enabled = false
     }
     
     private func applyTypingStyle(postTextView: UITextView) {
         postTextView.textColor = UIColor.darkTextColor()
         postTextView.alpha = 1.0
+        clearButton.enabled = true
     }
     
     @objc internal func textViewShouldBeginEditing(postTextView: UITextView) -> Bool {
@@ -104,11 +107,16 @@ class PostViewController: UIViewController, UITextViewDelegate {
         viewDidLoad()
     }
     
-    @IBAction func clearButtonTapped(sender: UIButton) {
-//        clearTextView()
+    @IBAction func clearTextView(sender: UIBarButtonItem) {
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 
     }
+    
+//    @IBAction func clearButtonTapped(sender: UIButton) {
+////        clearTextView()
+//        applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
+//
+//    }
 
     
     // MARK: - Navigation
@@ -117,7 +125,8 @@ class PostViewController: UIViewController, UITextViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         textToPost.delegate = nil
         if segue.identifier == "analyzePostTone" {
-            let tonesViewController = segue.destinationViewController as! TonesViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let tonesViewController = navigationController.topViewController as! TonesViewController
             tonesViewController.analyzedTone = analyzedTone
             tonesViewController.disablePostToFacebook = false
         }

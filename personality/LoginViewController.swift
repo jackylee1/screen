@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var screenLabel: UILabel!
+    @IBOutlet weak var loginButtonToBottom: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,6 @@ class LoginViewController: UIViewController {
             loginButton.readPermissions = ["public_profile", "email", "user_friends", "ads_read", "user_birthday", "user_location", "user_likes", "user_posts", "user_religion_politics", "user_about_me", "user_education_history", "user_hometown", "user_photos"]
             loginButton.publishPermissions = ["publish_actions"]
             loginButton.delegate = facebook
-//            hideButtons(true)
         }
         
     }
@@ -43,6 +44,13 @@ class LoginViewController: UIViewController {
     func hideButtons(state: Bool) {
         historyButton.hidden = state
         postButton.hidden = state
+        screenLabel.hidden = !state
+        
+        if state == false {
+            loginButtonToBottom.constant = 40
+        } else {
+            loginButtonToBottom.constant = 360
+        }
     }
     
     

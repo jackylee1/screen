@@ -23,9 +23,8 @@ class TonesViewController: UIViewController {
     @IBOutlet weak var agreeableness: ToneView!
     @IBOutlet weak var emotionalRange: ToneView!
     
-    @IBOutlet weak var postToFacebookButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var postButton: UIBarButtonItem!
     
     var analyzedTone: Tone?
     let managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
@@ -36,9 +35,18 @@ class TonesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postToFacebookButton.hidden = disablePostToFacebook!
-        cancelButton.hidden = disablePostToFacebook!
-        backButton.hidden = !disablePostToFacebook!
+        postButton.enabled = !disablePostToFacebook!
+        
+        if !disablePostToFacebook! {
+            backButton.title = "Cancel"
+            
+        } else {
+            postButton.tintColor = UIColor.clearColor()
+            backButton.title = "Back"
+        }
+        
+        
+        
         
 //        Setting the tone amount to one set the radians to draw to 3π/4 which causes it not to draw a circle as 
 //        that is the start point. So we set it to very close to 1 which appears to draw a close circle.
@@ -54,11 +62,22 @@ class TonesViewController: UIViewController {
         
     }
 
+    @IBAction func backButtonAction(sender: UIBarButtonItem) {
+        if disablePostToFacebook! {
+            self.performSegueWithIdentifier("unwindToDetail", sender: self)
+        } else {
+            self.performSegueWithIdentifier("cancelPostToFacebook", sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func postButtonAction(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("postToFacebook", sender: self)
+    }
 
     /*
     // MARK: - Navigation

@@ -147,7 +147,8 @@ class PostTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "postDetail" {
-            let postDetailViewController = segue.destinationViewController as! PostDetailViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let postDetailViewController = navigationController.topViewController as! PostDetailViewController
             let postToPass: Post
             if let indexPath = tableView.indexPathForSelectedRow {
                 if searchController.active {

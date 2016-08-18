@@ -35,7 +35,7 @@ class FacebookHandler : NSObject, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
-        loginViewController!.hideButtons(true)
+        loginViewController?.hideButtons(true)
     }
     
     func returnUserData() {
