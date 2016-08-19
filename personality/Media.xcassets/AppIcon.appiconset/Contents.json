@@ -18,13 +18,13 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Floppy-Disk-80.png",
+      "filename" : "Braces-80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Floppy-Disk-121.png",
+      "filename" : "Braces-120.png",
       "scale" : "3x"
     },
     {
@@ -40,13 +40,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Floppy-Disk-120.png",
+      "filename" : "Braces-121.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Floppy-Disk-180.png",
+      "filename" : "Braces-180.png",
       "scale" : "3x"
     },
     {
@@ -92,19 +92,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Floppy-Disk-76.png",
+      "filename" : "Braces-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Floppy-Disk-156.png",
+      "filename" : "Braces-152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Floppy-Disk-167.png",
+      "filename" : "Braces-167.png",
       "scale" : "2x"
     }
   ],
