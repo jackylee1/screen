@@ -92,6 +92,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/FBSDKCoreKit.framework"
   install_framework "Pods/FBSDKLoginKit.framework"
   install_framework "Pods/FBSDKShareKit.framework"
+  install_framework "Pods/RxBlocking.framework"
+  install_framework "Pods/RxCocoa.framework"
+  install_framework "Pods/RxSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/AWSCognito.framework"
@@ -102,4 +105,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/FBSDKCoreKit.framework"
   install_framework "Pods/FBSDKLoginKit.framework"
   install_framework "Pods/FBSDKShareKit.framework"
+  install_framework "Pods/RxBlocking.framework"
+  install_framework "Pods/RxCocoa.framework"
+  install_framework "Pods/RxSwift.framework"
 fi

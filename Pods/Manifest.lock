@@ -18,6 +18,11 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
+  - RxBlocking (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxCocoa (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.6.0)
 
 DEPENDENCIES:
   - AWSCognito (~> 2.3.6)
@@ -28,6 +33,9 @@ DEPENDENCIES:
   - FBSDKCoreKit (~> 4.12.0)
   - FBSDKLoginKit (~> 4.12.0)
   - FBSDKShareKit (~> 4.12.0)
+  - RxBlocking (~> 2.0)
+  - RxCocoa (~> 2.0)
+  - RxSwift (~> 2.0)
 
 SPEC CHECKSUMS:
   AWSCognito: af54fe65171c7c994c134e5d29b1ee60ee234825
@@ -38,5 +46,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  RxBlocking: f2e0a7e74d5e9d3029d2b1118e2af01f583fbdd8
+  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
 
 COCOAPODS: 0.39.0

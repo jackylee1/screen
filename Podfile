@@ -7,6 +7,9 @@ pod 'AWSCognito', '~> 2.3.6'
 pod 'AWSCore', '~> 2.3.6'
 pod 'AWSDynamoDB', '~> 2.3.6'
 pod 'AWSS3', '~> 2.3.6'
+pod 'RxSwift', '~>2.0'
+pod 'RxCocoa', '~>2.0'
+pod 'RxBlocking', '~>2.0'
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
