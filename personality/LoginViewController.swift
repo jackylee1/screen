@@ -78,10 +78,6 @@ class LoginViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         loginButton.delegate = nil
-//        if segue.identifier == "toTones" {
-//            let tonesVC = segue.destinationViewController as! TonesViewController
-//            tonesVC.tones = tonesToPass
-//        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

@@ -12,7 +12,7 @@ let π = CGFloat(M_PI)
 
 @IBDesignable class ToneView: UIView {
 
-    @IBInspectable var backgroundColour = UIColor.lightGrayColor()
+    @IBInspectable var backgroundColour = UIColor(red: 0x8F, green: 0xCC, blue: 0xF1, alpha: 0.6)
     
     @IBInspectable internal var toneAmount: CGFloat = 0.0 {
         didSet { setNeedsDisplay() }

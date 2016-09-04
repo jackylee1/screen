@@ -16,7 +16,7 @@ class PostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0xDC, green: 0xDF, blue: 0xE6, alpha: 0.5)
         textView.text = post?.message
 
         // Do any additional setup after loading the view.

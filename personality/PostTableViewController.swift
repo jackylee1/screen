@@ -15,10 +15,12 @@ class PostTableViewController: UITableViewController {
     var posts = [Post]()
     var filteredPosts = [Post]()
     var managedObjectContext = FacebookHandler.sharedInstance.managedObjectContext
+    
+    let textColour = UIColor(red: 0xD6, green: 0xE7, blue: 0xEE, alpha: 0.75)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0xDC, green: 0xDF, blue: 0xE6, alpha: 0.5)
         let fetchRequest = NSFetchRequest(entityName: "Post")
         let dateSort = NSSortDescriptor(key: "dateCreated", ascending: false)
         fetchRequest.sortDescriptors = [dateSort]
@@ -35,7 +37,14 @@ class PostTableViewController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
         
         searchController.searchBar.scopeButtonTitles = ["All", "Last 24h", "Last 7d", "Last 30d"]
+        searchController.searchBar.tintColor = textColour
+        
+        let searchTextField = searchController.searchBar.valueForKey("searchField") as? UITextField
+        searchTextField?.textColor = UIColor.darkGrayColor()
+        
+        
         searchController.searchBar.delegate = self
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -126,6 +135,8 @@ class PostTableViewController: UITableViewController {
         let formattedDate = dateFormatter.stringFromDate(date)
         
         cell.detailTextLabel?.text = formattedDate
+        cell.textLabel?.textColor = textColour
+        cell.detailTextLabel?.textColor = textColour
 
         return cell
     }
