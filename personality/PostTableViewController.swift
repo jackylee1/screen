@@ -20,7 +20,7 @@ class PostTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0xDC, green: 0xDF, blue: 0xE6, alpha: 0.5)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.71, green:0.73, blue:0.76, alpha:1.0)
         let fetchRequest = NSFetchRequest(entityName: "Post")
         let dateSort = NSSortDescriptor(key: "dateCreated", ascending: false)
         fetchRequest.sortDescriptors = [dateSort]
@@ -41,7 +41,8 @@ class PostTableViewController: UITableViewController {
         
         let searchTextField = searchController.searchBar.valueForKey("searchField") as? UITextField
         searchTextField?.textColor = UIColor.darkGrayColor()
-        
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0xD6, green: 0xE7, blue: 0xEE, alpha: 0.75)
+
         
         searchController.searchBar.delegate = self
         

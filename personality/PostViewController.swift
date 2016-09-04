@@ -23,8 +23,9 @@ class PostViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         textToPost.delegate = self
         activityIndicator.hidesWhenStopped = true
-//        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0xB4, green: 0xB9, blue: 0xC3, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.71, green:0.73, blue:0.76, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor =  UIColor(red: 0xD6, green: 0xE7, blue: 0xEE, alpha: 0.75)
+        
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
 

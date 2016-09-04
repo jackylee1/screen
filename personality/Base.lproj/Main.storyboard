@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-UL-S1b">
-                                <rect key="frame" x="20" y="20" width="560" height="128"/>
+                                <rect key="frame" x="20" y="64" width="560" height="128"/>
                                 <color key="backgroundColor" red="0.16862745098039217" green="0.68235294117647061" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="5ey-tQ-Uzs"/>
@@ -86,7 +86,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMx-NL-zQS">
-                                <rect key="frame" x="20" y="203" width="560" height="30"/>
+                                <rect key="frame" x="20" y="247" width="560" height="30"/>
                                 <state key="normal" title="Let's see how this post represented me">
                                     <color key="titleColor" red="0.83921568627450982" green="0.90588235294117647" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -101,7 +101,7 @@
                             <constraint firstItem="8q8-UL-S1b" firstAttribute="leading" secondItem="Xoz-1g-RMR" secondAttribute="leadingMargin" id="9qA-yH-iy6"/>
                             <constraint firstItem="tMx-NL-zQS" firstAttribute="top" secondItem="8q8-UL-S1b" secondAttribute="bottom" constant="55" id="Nw3-9A-CDq"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tMx-NL-zQS" secondAttribute="leading" id="kgh-PE-SsI"/>
-                            <constraint firstItem="8q8-UL-S1b" firstAttribute="top" secondItem="Xoz-1g-RMR" secondAttribute="top" constant="20" symbolic="YES" id="mGx-4x-hdr"/>
+                            <constraint firstItem="8q8-UL-S1b" firstAttribute="top" secondItem="Xoz-1g-RMR" secondAttribute="top" constant="64" id="mGx-4x-hdr"/>
                             <constraint firstItem="8q8-UL-S1b" firstAttribute="trailing" secondItem="Xoz-1g-RMR" secondAttribute="trailingMargin" id="rzM-O3-QEF"/>
                             <constraint firstItem="tMx-NL-zQS" firstAttribute="centerX" secondItem="8q8-UL-S1b" secondAttribute="centerX" id="yCD-6U-Cbl"/>
                         </constraints>
