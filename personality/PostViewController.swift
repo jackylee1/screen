@@ -23,6 +23,8 @@ class PostViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         textToPost.delegate = self
         activityIndicator.hidesWhenStopped = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.71, green:0.73, blue:0.76, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor =  UIColor(red: 0xD6, green: 0xE7, blue: 0xEE, alpha: 0.75)
         
         
         applyPlaceholderStyle(textToPost, placeholderText: initialPlaceholderText)
@@ -35,13 +37,13 @@ class PostViewController: UIViewController, UITextViewDelegate {
     }
     
     private func applyPlaceholderStyle(postTextView: UITextView, placeholderText: String) {
-        postTextView.textColor = UIColor.lightGrayColor()
+        postTextView.textColor = UIColor(red: 0x8F, green: 0xCC, blue: 0xF1, alpha: 0.75)
         postTextView.text = placeholderText
         clearButton.enabled = false
     }
     
     private func applyTypingStyle(postTextView: UITextView) {
-        postTextView.textColor = UIColor.darkTextColor()
+        postTextView.textColor = UIColor.darkGrayColor()
         postTextView.alpha = 1.0
         clearButton.enabled = true
     }

@@ -34,7 +34,9 @@ class TonesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.71, green:0.73, blue:0.76, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0xD6, green: 0xE7, blue: 0xEE, alpha: 0.75)
+
         postButton.enabled = !disablePostToFacebook!
         
         if !disablePostToFacebook! {
