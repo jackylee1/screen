@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         self.defaults.setValue("0", forKey: "AWSUserID")
         FacebookHandler.sharedInstance.loginViewController = self
         let hasCurrentToken = FacebookHandler.sharedInstance.facebookToken()
+        loginButton.delegate = facebook
         
         if hasCurrentToken {
             hideButtons(false)
@@ -36,7 +37,7 @@ class LoginViewController: UIViewController {
         } else {
             loginButton.readPermissions = ["public_profile", "email", "user_friends", "ads_read", "user_birthday", "user_location", "user_likes", "user_posts", "user_religion_politics", "user_about_me", "user_education_history", "user_hometown", "user_photos"]
             loginButton.publishPermissions = ["publish_actions"]
-            loginButton.delegate = facebook
+//            loginButton.delegate = facebook
         }
         
     }
