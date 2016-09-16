@@ -29,7 +29,7 @@ public class VisualRecognition {
     private let apiKey: String
     private let version: String
     private let serviceURL: String
-    private let userAgent = buildUserAgent("watson-apis-ios-sdk/0.6.0 VisualRecognitionV3")
+    private let userAgent = buildUserAgent("watson-apis-ios-sdk/0.8.0 VisualRecognitionV3")
     private let domain = "com.ibm.watson.developer-cloud.VisualRecognitionV3"
     
     /**
@@ -725,7 +725,7 @@ public class VisualRecognition {
         let suffix = "VisualRecognitionParameters.json"
         let fileName = String(format: "%@_%@", NSUUID().UUIDString, suffix)
         let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-        let fileURL = directoryURL.URLByAppendingPathComponent(fileName)
+        let fileURL = directoryURL.URLByAppendingPathComponent(fileName)!
         
         // save JSON dictionary to file
         do {

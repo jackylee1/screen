@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import ToneAnalyzerV3
 import CoreData
+import ToneAnalyzerV3
 
 class WatsonToneAnalyzer
 {

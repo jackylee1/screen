@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -37,6 +37,20 @@
                BlueprintName = "RetrieveAndRankV1Tests"
                ReferencedContainer = "container:WatsonDeveloperCloud.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "RetrieveAndRankTests/testCreateAndDeleteRanker()">
+               </Test>
+               <Test
+                  Identifier = "RetrieveAndRankTests/testCreateAndDeleteSolrCluster()">
+               </Test>
+               <Test
+                  Identifier = "RetrieveAndRankTests/testCreateAndDeleteSolrCollection()">
+               </Test>
+               <Test
+                  Identifier = "RetrieveAndRankTests/testCreateAndDeleteSolrConfiguration()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

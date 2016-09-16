@@ -28,7 +28,7 @@ public class RetrieveAndRank {
     private let username: String
     private let password: String
     private let serviceURL: String
-    private let userAgent = buildUserAgent("watson-apis-ios-sdk/0.6.0 RetrieveAndRankV1")
+    private let userAgent = buildUserAgent("watson-apis-ios-sdk/0.8.0 RetrieveAndRankV1")
     private let domain = "com.ibm.watson.developer-cloud.RetrieveAndRankV1"
     
     /**
@@ -335,7 +335,7 @@ public class RetrieveAndRank {
         var isUnique = false
         var duplicates = 0
         while !isUnique {
-            let filePath = downloads.URLByAppendingPathComponent(filename).path!
+            let filePath = downloads.URLByAppendingPathComponent(filename)!.path!
             if fileManager.fileExistsAtPath(filePath) {
                 duplicates += 1
                 filename = configName + "-\(duplicates)" + ".zip"
@@ -345,7 +345,7 @@ public class RetrieveAndRank {
         }
         
         // specify download destination
-        let destinationURL = downloads.URLByAppendingPathComponent(filename)
+        let destinationURL = downloads.URLByAppendingPathComponent(filename)!
         let destination: Request.DownloadFileDestination = { temporaryURL, response -> NSURL in
             return destinationURL
         }

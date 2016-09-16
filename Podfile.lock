@@ -1,42 +1,44 @@
 PODS:
-  - AWSCognito (2.3.6):
-    - AWSCore (= 2.3.6)
-  - AWSCore (2.3.6)
-  - AWSDynamoDB (2.3.6):
-    - AWSCore (= 2.3.6)
-  - AWSS3 (2.3.6):
-    - AWSCore (= 2.3.6)
+  - AWSCognito (2.4.8):
+    - AWSCore (= 2.4.8)
+  - AWSCore (2.4.8)
+  - AWSDynamoDB (2.4.8):
+    - AWSCore (= 2.4.8)
+  - AWSS3 (2.4.8):
+    - AWSCore (= 2.4.8)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - FBSDKCoreKit (4.12.0):
+  - FBSDKCoreKit (4.15.1):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.12.0):
+  - FBSDKLoginKit (4.15.1):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.12.0):
+  - FBSDKShareKit (4.15.1):
     - FBSDKCoreKit
 
 DEPENDENCIES:
-  - AWSCognito (~> 2.3.6)
-  - AWSCore (~> 2.3.6)
-  - AWSDynamoDB (~> 2.3.6)
-  - AWSS3 (~> 2.3.6)
+  - AWSCognito
+  - AWSCore
+  - AWSDynamoDB
+  - AWSS3
   - Bolts
-  - FBSDKCoreKit (~> 4.12.0)
-  - FBSDKLoginKit (~> 4.12.0)
-  - FBSDKShareKit (~> 4.12.0)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
 
 SPEC CHECKSUMS:
-  AWSCognito: af54fe65171c7c994c134e5d29b1ee60ee234825
-  AWSCore: 917d84b32974136194a905b98c0ae25c9f3350b8
-  AWSDynamoDB: 0bfd95eb10363090d8570a48d5feb4e3d7ec5264
-  AWSS3: 1caaf6b45100503fecf3d418c394519a89409a74
+  AWSCognito: 63ae70c4ff94656f7a36892c45680bbb311b7381
+  AWSCore: 7bc7e845f532dedc65b133cdf518bb44a2e28dfe
+  AWSDynamoDB: aff5790ebf397c1865f99b7f764b67a3e7f379e0
+  AWSS3: f48121d50ddd73e830c3522c44772a70fce29f27
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
-  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
-  FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
+  FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
+  FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 1524071efa18763e7050c63ff99869185f6604c9
+
+COCOAPODS: 1.0.1
