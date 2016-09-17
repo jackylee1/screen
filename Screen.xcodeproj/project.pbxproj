@@ -27,10 +27,6 @@
 		1CBB530D1D544DC10090299A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBB530C1D544DC10090299A /* Default-568h@2x.png */; };
 		1CBB530F1D5451800090299A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBB530E1D5451800090299A /* LoginViewController.swift */; };
 		1CBB90911D5C35DE0096EC25 /* PostMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBB90901D5C35DE0096EC25 /* PostMapper.swift */; };
-		1CDFBE891D8BD7050056A592 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE811D8BD3EB0056A592 /* Alamofire.framework */; };
-		1CDFBE8A1D8BD7050056A592 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE821D8BD3EB0056A592 /* Freddy.framework */; };
-		1CDFBE8B1D8BD7050056A592 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE831D8BD3EB0056A592 /* RestKit.framework */; };
-		1CDFBE8C1D8BD7050056A592 /* ToneAnalyzerV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE841D8BD3EB0056A592 /* ToneAnalyzerV3.framework */; };
 		1CDFBE911D8BD7A60056A592 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE8D1D8BD7A60056A592 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1CDFBE921D8BD7A60056A592 /* Freddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE8E1D8BD7A60056A592 /* Freddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1CDFBE931D8BD7A60056A592 /* RestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFBE8F1D8BD7A60056A592 /* RestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -42,6 +38,7 @@
 		1CFD56CC1D60562900BD73EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD56CB1D60562900BD73EA /* PostViewController.swift */; };
 		1CFE9CA51D639AAA006513B7 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE9CA41D639AAA006513B7 /* PostDetailViewController.swift */; };
 		1CFE9CA71D63E155006513B7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CFE9CA61D63E155006513B7 /* Media.xcassets */; };
+		99D822E1B4C17E46B76DE836 /* Pods_personality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8EE881C89AD79D187EC3B98 /* Pods_personality.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,10 +102,7 @@
 		1CBB530C1D544DC10090299A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1CBB530E1D5451800090299A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CBB90901D5C35DE0096EC25 /* PostMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMapper.swift; sourceTree = "<group>"; };
-		1CDFBE811D8BD3EB0056A592 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		1CDFBE821D8BD3EB0056A592 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
-		1CDFBE831D8BD3EB0056A592 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
-		1CDFBE841D8BD3EB0056A592 /* ToneAnalyzerV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToneAnalyzerV3.framework; path = Carthage/Build/iOS/ToneAnalyzerV3.framework; sourceTree = "<group>"; };
+		1CD1387A1D8D0B20000509B3 /* personality.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = personality.entitlements; path = personality/personality.entitlements; sourceTree = "<group>"; };
 		1CDFBE8D1D8BD7A60056A592 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1CDFBE8E1D8BD7A60056A592 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
 		1CDFBE8F1D8BD7A60056A592 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
@@ -123,6 +117,7 @@
 		4AB2B1CE74856F8F0AA93849 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AF82679B5C4675688C48F315 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B7796FFCE394B5B03A332993 /* Pods-personality.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-personality.debug.xcconfig"; path = "Pods/Target Support Files/Pods-personality/Pods-personality.debug.xcconfig"; sourceTree = "<group>"; };
+		B8EE881C89AD79D187EC3B98 /* Pods_personality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_personality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7612A3ECB7D72CDCCF63BA0 /* Pods-personality.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-personality.release.xcconfig"; path = "Pods/Target Support Files/Pods-personality/Pods-personality.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,10 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CDFBE8A1D8BD7050056A592 /* Freddy.framework in Frameworks */,
-				1CDFBE8C1D8BD7050056A592 /* ToneAnalyzerV3.framework in Frameworks */,
-				1CDFBE891D8BD7050056A592 /* Alamofire.framework in Frameworks */,
-				1CDFBE8B1D8BD7050056A592 /* RestKit.framework in Frameworks */,
+				99D822E1B4C17E46B76DE836 /* Pods_personality.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,10 +150,7 @@
 		1C9B956A1D5406170092349C = {
 			isa = PBXGroup;
 			children = (
-				1CDFBE8D1D8BD7A60056A592 /* Alamofire.framework */,
-				1CDFBE8E1D8BD7A60056A592 /* Freddy.framework */,
-				1CDFBE8F1D8BD7A60056A592 /* RestKit.framework */,
-				1CDFBE901D8BD7A60056A592 /* ToneAnalyzerV3.framework */,
+				1CD1387A1D8D0B20000509B3 /* personality.entitlements */,
 				1C9B95751D5406170092349C /* Screen */,
 				1CAE88AB1D5584F3008D3710 /* Models */,
 				1CBB530C1D544DC10090299A /* Default-568h@2x.png */,
@@ -255,10 +244,11 @@
 		D05ED0702A092DC37A670B90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1CDFBE811D8BD3EB0056A592 /* Alamofire.framework */,
-				1CDFBE841D8BD3EB0056A592 /* ToneAnalyzerV3.framework */,
-				1CDFBE821D8BD3EB0056A592 /* Freddy.framework */,
-				1CDFBE831D8BD3EB0056A592 /* RestKit.framework */,
+				1CDFBE8D1D8BD7A60056A592 /* Alamofire.framework */,
+				1CDFBE8E1D8BD7A60056A592 /* Freddy.framework */,
+				1CDFBE8F1D8BD7A60056A592 /* RestKit.framework */,
+				1CDFBE901D8BD7A60056A592 /* ToneAnalyzerV3.framework */,
+				B8EE881C89AD79D187EC3B98 /* Pods_personality.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -336,6 +326,11 @@
 					1C9B95721D5406170092349C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K23RN5QVJH;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					1C9B95891D5406170092349C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -627,6 +622,7 @@
 			baseConfigurationReference = B7796FFCE394B5B03A332993 /* Pods-personality.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = personality/personality.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -650,6 +646,7 @@
 			baseConfigurationReference = F7612A3ECB7D72CDCCF63BA0 /* Pods-personality.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = personality/personality.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

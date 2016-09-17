@@ -32,7 +32,7 @@ class WatsonToneAnalyzer
         
         let toneAnalyzer = ToneAnalyzer(username: username, password: password, version: version)
         
-        let failure = { (error: NSError) in print(error) }
+        let failure = { (error: NSError) in print("toneAnalyzer Error: \(error)") }
         toneAnalyzer.getTone(text, failure: failure) { tones in
             self.processAnalyzedTone(tones,text: text)
         }
